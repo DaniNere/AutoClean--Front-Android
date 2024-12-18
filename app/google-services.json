@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "973631789808",
+    "project_id": "autoclean-64fe9",
+    "storage_bucket": "autoclean-64fe9.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:973631789808:android:71b5ba94f5c6cbba56c035",
+        "android_client_info": {
+          "package_name": "com.example.autoclean"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD2gKFzU9bjpP1FAvMmF9rvBPMNurphTw8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
