@@ -1,4 +1,4 @@
-package com.example.autoclean.ui
+package com.example.autoclean.ui.shared
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment

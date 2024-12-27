@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="PrimaryButton" parent="Widget.MaterialComponents.Button">
+        <item name="android:layout_width">310dp</item>
+        <item name="android:layout_height">48dp</item>
+        <item name="backgroundTint">@color/primary_variant2</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="cornerRadius">31dp</item>
+        <item name="android:alpha">1.0</item>
+    </style>
+
+    <style name="SecondButton" parent="Widget.MaterialComponents.Button">
+        <item name="android:layout_width">147dp</item>
+        <item name="android:layout_height">48dp</item>
+        <item name="backgroundTint">@color/white</item>
+        <item name="android:textColor">@color/primary_variant2</item>
+        <item name="cornerRadius">31dp</item>
+        <item name="android:alpha">1.0</item>
+        <item name="android:strokeColor">@color/primary_variant2</item>
+        <item name="android:strokeWidth">2dp</item>
+    </style>
+
+    <style name="PrimaryEditText" parent="Widget.AppCompat.EditText">
+        <item name="android:layout_width">310dp</item>
+        <item name="android:layout_height">48dp</item>
+        <item name="android:background">@drawable/bg_edit_text</item>
+        <item name="android:padding">8dp</item>
+        <item name="android:textColor">@color/primary_variant2</item>
+        <item name="android:alpha">1.0</item>
+    </style>
+
+</resources>
