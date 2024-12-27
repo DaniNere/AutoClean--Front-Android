@@ -1,7 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <!-- Base application theme. -->
-    <style name="Base.Theme.AutoClean" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Customize your dark theme here. -->
-        <!-- <item name="colorPrimary">@color/my_dark_primary</item> -->
+    <!-- Tema Escuro -->
+    <style name="Theme.MyApp" parent="Theme.Material3.Dark.NoActionBar">
+        <!-- Cor Primária -->
+        <item name="colorPrimary">@color/primary</item>
+        <item name="colorPrimaryVariant">@color/primary_variant2</item>
+        <item name="colorOnPrimary">@color/white</item>
+
+        <!-- Cor Secundária -->
+        <item name="colorSecondary">@color/secondary_variant2</item>
+        <item name="colorOnSecondary">@color/neutral_dark</item>
+
+        <!-- Cor Terciária -->
+        <item name="colorTertiary">@color/tertiary_accent</item>
+        <item name="colorOnTertiary">@color/white</item>
+
+        <!-- Fundo e Superfície -->
+        <item name="colorBackground">@color/black</item>
+        <item name="colorSurface">@color/neutral_dark</item>
+        <item name="colorOnBackground">@color/neutral_medium</item>
+        <item name="colorOnSurface">@color/white</item>
+
+        <!-- Cores de Erro -->
+        <item name="colorError">@color/error</item>
+        <item name="colorOnError">@color/white</item>
+
+        <!-- Personalização do Texto -->
+        <item name="android:textColorPrimary">@color/white</item>
+        <item name="android:textColorSecondary">@color/neutral_medium</item>
     </style>
 </resources>
