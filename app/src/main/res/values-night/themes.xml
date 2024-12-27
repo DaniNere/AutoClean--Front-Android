@@ -16,7 +16,7 @@
         <item name="colorOnTertiary">@color/white</item>
 
         <!-- Fundo e Superfície -->
-        <item name="colorBackground">@color/black</item>
+        <item name="background">@color/black</item>
         <item name="colorSurface">@color/neutral_dark</item>
         <item name="colorOnBackground">@color/neutral_medium</item>
         <item name="colorOnSurface">@color/white</item>
