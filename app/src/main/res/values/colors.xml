@@ -1,5 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="black">#FF000000</color>
-    <color name="white">#FFFFFFFF</color>
+    <!-- Cores Primárias -->
+    <color name="primary">#064D99</color>
+    <color name="primary_variant">#B2D7FF</color>
+    <color name="primary_variant2">#03254A</color>
+
+    <!-- Cores Secundárias -->
+    <color name="secondary">#064D99</color>
+    <color name="secondary_variant">#8D9EB0</color>
+    <color name="secondary_variant2">#0758B0</color>
+
+    <!-- Cores Terciárias -->
+    <color name="tertiary">#408299</color>
+    <color name="tertiary_light">#CCF2FF</color>
+    <color name="tertiary_accent">#6BD8FF</color>
+
+    <!-- Cores Terciárias - Segunda Paleta -->
+    <color name="tertiary_neutral">#71998B</color>
+    <color name="tertiary_pastel">#CCFFED</color>
+    <color name="tertiary_pastel_light">#BCFFE8</color>
+
+    <!-- Cores Neutras -->
+    <color name="white">#FFFFFF</color>
+    <color name="black">#000000</color>
+    <color name="neutral_dark">#1B1B1B</color>
+    <color name="neutral_medium">#EFEFFF</color>
+
+    <!-- Outros -->
+    <color name="error">#B00020</color>
+    <color name="success">#388E3C</color>
 </resources>
