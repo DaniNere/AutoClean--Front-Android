@@ -4,184 +4,175 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    app:layout_constraintGuidePercent="0.1"
     tools:context=".ui.auth.LoginFragment">
 
-
-    <include
-        android:id="@+id/include"
-        layout="@layout/fragment_header"
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="0dp"
-        android:paddingTop="0dp"
-        android:paddingBottom="0dp"/>
+        android:layout_height="match_parent">
 
-
-    <LinearLayout
-        android:id="@+id/linearLayout"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="24dp"
-        android:layout_marginTop="0dp"
-        android:orientation="vertical"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/include"
-        app:layout_constraintVertical_bias="0.0">
-
-        <TextView
-            android:layout_width="95dp"
-            android:layout_height="46dp"
-            android:layout_gravity="start"
-            android:layout_marginStart="140dp"
-            android:layout_marginBottom="5dp"
-            android:fontFamily="@font/inter"
-            android:text="Login"
-            android:textColor="@color/primary_variant2"
-            android:textSize="32dp" />
-
-        <EditText
-            style="@style/PrimaryEditText"
+        <include
+            android:id="@+id/include6"
+            layout="@layout/fragment_header"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
-            android:hint="Email"
-            android:inputType="textEmailAddress"
-            android:padding="16sp"
-            android:textSize="14dp" />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="textPassword"
-            android:textColor="@color/primary_variant2" />
-
-        <EditText
-            style="@style/PrimaryEditText"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
-            android:layout_marginBottom="7dp"
-            android:hint="Senha"
-            android:padding="16sp"
-            android:textSize="14dp" />
-
-        <com.google.android.material.button.MaterialButton
-            style="@style/PrimaryButton"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
-            android:layout_marginBottom="10dp"
-            android:text="ENTRAR" />
+            android:layout_height="match_parent"
+            android:padding="0dp"
+            android:paddingTop="0dp"
+            android:paddingBottom="0dp" />
 
         <LinearLayout
+            android:id="@+id/linearLayout"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="start"
-                android:layout_marginStart="120dp"
-                android:layout_marginTop="5dp"
-                android:text="Ou continue com"
-                android:textColor="@color/primary_variant2" />
-
-        </LinearLayout>
-
-<LinearLayout
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:orientation="horizontal"
-    android:layout_marginTop="16dp">
-
-    <com.google.android.material.button.MaterialButton
-        style="@style/SecondButton"
-        android:layout_width="147dp"
-        android:layout_height="48dp"
-        android:layout_gravity="center_vertical"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginBottom="8dp"
-        android:fontFamily="@font/inter"
-        android:textSize="12dp"
-        app:backgroundTint="@android:color/transparent"
-        app:icon="@drawable/google_1"
-        app:iconSize="24dp"
-        app:iconTint="@color/secondary_variant2"
-        app:iconGravity="textStart"
-        android:text="@string/Google">
-
-    </com.google.android.material.button.MaterialButton>
-
-    <com.google.android.material.button.MaterialButton
-        style="@style/SecondButton"
-        android:layout_width="147dp"
-        android:layout_height="48dp"
-        android:layout_gravity="center_vertical"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginBottom="8dp"
-        android:fontFamily="@font/inter"
-        android:textSize="12sp"
-        app:backgroundTint="@android:color/transparent"
-        android:text="@string/Apple"
-        app:icon="@drawable/apple1"
-        app:iconTint="@color/black"
-        app:iconSize="24dp"
-        app:iconGravity="textStart">
-
-    </com.google.android.material.button.MaterialButton>
-
-</LinearLayout>
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:text="Não possui uma conta?"
-                android:layout_marginHorizontal="24dp"
-                android:textSize="16dp" />
-
-
-            <TextView
-                android:id="@+id/clickableText"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Criar Conta"
-                android:textColor="@color/secondary_variant2"
-                android:autoLink="web"
-                android:linksClickable="true"/>
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:orientation="vertical"
-            android:layout_gravity="center"
-            android:layout_marginTop="12dp">
+            android:background="@drawable/rounded_top_border"
+            android:layout_marginTop="300dp"
+            android:layout_alignParentBottom="true"
+            android:paddingBottom="16dp">
+
 
             <TextView
-                android:id="@+id/clickableText2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="@color/secondary_variant2"
-                android:text="Esqueceu a Senha?"
-                android:autoLink="web"
-                android:linksClickable="true"/>
+                android:text="Login"
+                android:textColor="@color/primary_variant2"
+                android:textSize="32sp"
+                android:fontFamily="@font/inter"
+                android:layout_marginBottom="12dp"
+                android:layout_gravity="center_horizontal"/>
 
+
+            <EditText
+                style="@style/PrimaryEditText"
+                android:layout_width="310dp"
+                android:layout_height="48dp"
+                android:layout_marginTop="4dp"
+                android:layout_marginBottom="5dp"
+                android:layout_gravity="center_horizontal"
+                android:hint="Email"
+                android:inputType="textEmailAddress"
+                android:padding="16dp"
+                android:textSize="14sp" />
+
+
+            <EditText
+                style="@style/PrimaryEditText"
+                android:layout_width="310dp"
+                android:layout_height="48dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="4dp"
+                android:layout_marginBottom="7dp"
+                android:hint="Senha"
+                android:inputType="textPassword"
+                android:padding="16dp"
+                android:textSize="14sp" />
+
+
+            <com.google.android.material.button.MaterialButton
+                style="@style/PrimaryButton"
+                android:layout_width="310dp"
+                android:layout_height="48dp"
+                android:text="ENTRAR"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp" />
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="0dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Ou continue com"
+                    android:textColor="@color/primary_variant2"
+                    android:layout_gravity="center_horizontal"/>
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="12dp"
+                android:layout_marginBottom="0dp">
+
+                <com.google.android.material.button.MaterialButton
+                    style="@style/SecondButton"
+                    android:layout_width="0dp"
+                    android:layout_height="58dp"
+                    android:layout_weight="1"
+                    android:layout_marginStart="1dp"
+                    android:text="Google"
+                    app:backgroundTint="@android:color/transparent"
+                    app:icon="@drawable/google_1"
+                    app:iconSize="24dp"
+                    app:iconTint="@color/secondary_variant2"
+                    app:iconGravity="textStart" />
+
+                <com.google.android.material.button.MaterialButton
+                    style="@style/SecondButton"
+                    android:layout_width="0dp"
+                    android:layout_height="58dp"
+                    android:layout_weight="1"
+                    android:layout_marginStart="40dp"
+                    android:text="Apple"
+                    app:backgroundTint="@android:color/transparent"
+                    app:icon="@drawable/apple1"
+                    app:iconSize="24dp"
+                    app:iconTint="@color/black"
+                    app:iconGravity="textStart" />
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="17dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Não possui uma conta?"
+                    android:layout_gravity="center_horizontal"
+                    android:textColor="@color/secondary_variant"
+                    android:textSize="16dp" />
+
+                <TextView
+                    android:id="@+id/clickableText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Criar Conta"
+                    android:textColor="@color/secondary_variant2"
+                    android:autoLink="web"
+                    android:linksClickable="true"
+                    android:layout_marginStart="8dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="10dp">
+
+                <TextView
+                    android:id="@+id/clickableText2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Esqueceu a Senha?"
+                    android:textColor="@color/secondary_variant2"
+                    android:autoLink="web"
+                    android:linksClickable="true" />
+            </LinearLayout>
 
         </LinearLayout>
 
-    </LinearLayout>
+    </FrameLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
