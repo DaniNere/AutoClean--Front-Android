@@ -26,19 +26,33 @@
             android:orientation="vertical"
             android:background="@drawable/rounded_top_border"
             android:layout_marginTop="270dp"
+            android:layout_alignParentBottom="true"
             android:paddingBottom="16dp">
 
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Login"
+                android:text="Cadastro"
                 android:textColor="@color/primary_variant2"
                 android:textSize="32sp"
                 android:fontFamily="@font/inter"
                 android:layout_marginBottom="12dp"
                 android:layout_gravity="center_horizontal"/>
 
+
+
+            <EditText
+                style="@style/PrimaryEditText"
+                android:layout_width="310dp"
+                android:layout_height="48dp"
+                android:layout_marginTop="4dp"
+                android:layout_marginBottom="5dp"
+                android:layout_gravity="center_horizontal"
+                android:hint="Nome e Sobrenome"
+                android:inputType="text"
+                android:padding="16dp"
+                android:textSize="14sp" />
 
             <EditText
                 style="@style/PrimaryEditText"
@@ -70,7 +84,7 @@
                 style="@style/PrimaryButton"
                 android:layout_width="310dp"
                 android:layout_height="48dp"
-                android:text="ENTRAR"
+                android:text="CRIAR CONTA"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="10dp" />
@@ -137,7 +151,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Não possui uma conta?"
+                    android:text="Já possui conta?"
                     android:layout_gravity="center_horizontal"
                     android:textColor="@color/secondary_variant"
                     android:textSize="16dp" />
@@ -146,37 +160,22 @@
                     android:id="@+id/clickableText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Criar Conta"
+                    android:text="Entrar"
                     android:textColor="@color/secondary_variant2"
                     android:autoLink="web"
                     android:linksClickable="true"
                     android:layout_marginStart="8dp" />
             </LinearLayout>
 
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginTop="10dp">
-
-                <TextView
-                    android:id="@+id/clickableText2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Esqueceu a Senha?"
-                    android:textColor="@color/secondary_variant2"
-                    android:autoLink="web"
-                    android:linksClickable="true" />
-            </LinearLayout>
-
         </LinearLayout>
+
         <ProgressBar
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:layout_gravity="center"
             android:indeterminateTint="@color/primary_variant2"/>
+
     </FrameLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

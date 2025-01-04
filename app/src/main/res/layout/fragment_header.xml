@@ -24,7 +24,7 @@
             android:layout_width="140dp"
             android:layout_height="143dp"
             android:layout_marginStart="130dp"
-            android:layout_marginTop="34dp"
+            android:layout_marginTop="28dp"
             android:src="@drawable/frame_2" />
 
 
@@ -58,7 +58,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="start"
             android:layout_marginStart="70dp"
-            android:layout_marginTop="245dp"
+            android:layout_marginTop="240dp"
             android:layout_marginBottom="20dp"
             android:fontFamily="@font/inter"
             android:text="Seu carro limpo, sem sair de casa!"
