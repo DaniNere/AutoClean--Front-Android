@@ -7,22 +7,25 @@ import android.view.View
 import android.view.ViewGroup
 import com.example.autoclean.R
 import com.example.autoclean.databinding.FragmentLoginBinding
-import com.example.autoclean.databinding.FragmentProfileBinding
+import com.example.autoclean.databinding.FragmentRegisterBinding
 
 
-class ProfileFragment : Fragment() {
-    private var _binding: FragmentProfileBinding? = null
+class RegisterFragment : Fragment() {
+
+    private var _binding: FragmentRegisterBinding? = null
     private val binding get() = _binding!!
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-       _binding = FragmentProfileBinding.inflate(inflater, container, false)
+        _binding=FragmentRegisterBinding.inflate(inflater, container, false)
         return binding.root
     }
+
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
     }
+
 }
