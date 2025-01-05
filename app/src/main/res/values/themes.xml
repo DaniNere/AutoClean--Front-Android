@@ -2,7 +2,7 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Tema Principal -->
     <style name="Theme.AutoClean" parent="Theme.Material3.Light.NoActionBar">
-        <item name="colorPrimary">@color/primary</item>
+        <item name="colorPrimary">@color/primary_variant</item>
         <item name="colorPrimaryVariant">@color/primary_variant</item>
         <item name="colorPrimaryVariant2">@color/primary_variant2</item>
         <item name="colorSecondary">@color/secondary</item>
