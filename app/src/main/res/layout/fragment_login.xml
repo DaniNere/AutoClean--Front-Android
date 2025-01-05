@@ -175,6 +175,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
+            android:visibility="invisible"
+            tools:visibility="visible"
             android:layout_gravity="center"
             android:indeterminateTint="@color/primary_variant2"/>
     </FrameLayout>

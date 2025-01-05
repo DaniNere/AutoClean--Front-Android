@@ -7,7 +7,8 @@
 
     <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        app:layout_constraintEnd_toEndOf="parent">
 
         <include
             android:id="@+id/include6"
@@ -19,44 +20,44 @@
             android:paddingBottom="0dp" />
 
         <LinearLayout
-        android:id="@+id/linearLayout3"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="270dp"
-        android:background="@drawable/rounded_top_border"
-        android:orientation="vertical"
-        android:layout_gravity="top|center_horizontal">
+            android:id="@+id/linearLayout3"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="top|center_horizontal"
+            android:layout_marginTop="270dp"
+            android:background="@drawable/rounded_top_border"
+            android:orientation="vertical">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="12dp"
+                android:fontFamily="@font/inter"
                 android:text="Recuperar Conta"
                 android:textColor="@color/primary_variant2"
-                android:textSize="32sp"
-                android:fontFamily="@font/inter"
-                android:layout_marginBottom="12dp"
-                android:layout_gravity="center_horizontal"/>
+                android:textSize="32sp" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Informe seu e-mail de cadastro para receber \n um link para a alteração da senha."
-                android:textColor="@color/primary_variant2"
-                android:fontFamily="@font/inter"
-                android:textAlignment="center"
-                android:layout_marginBottom="12dp"
+                android:layout_gravity="center"
                 android:layout_marginStart="12dp"
                 android:layout_marginEnd="12dp"
-                android:layout_gravity="center"/>
+                android:layout_marginBottom="12dp"
+                android:fontFamily="@font/inter"
+                android:text="Informe seu e-mail de cadastro para receber \n um link para a alteração da senha."
+                android:textAlignment="center"
+                android:textColor="@color/primary_variant2" />
 
 
             <EditText
                 style="@style/PrimaryEditText"
                 android:layout_width="310dp"
                 android:layout_height="48dp"
+                android:layout_gravity="center_horizontal"
                 android:layout_marginTop="4dp"
                 android:layout_marginBottom="5dp"
-                android:layout_gravity="center_horizontal"
                 android:hint="Email"
                 android:inputType="textEmailAddress"
                 android:padding="16dp"
@@ -66,18 +67,20 @@
                 style="@style/PrimaryButton"
                 android:layout_width="310dp"
                 android:layout_height="48dp"
-                android:text="ENVIAR"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="10dp"
-                android:layout_marginBottom="10dp" />
+                android:layout_marginBottom="10dp"
+                android:text="ENVIAR" />
 
         </LinearLayout>
 
         <ProgressBar
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="140dp"
             android:layout_gravity="center"
-            android:indeterminateTint="@color/primary_variant2"/>
+            android:visibility="invisible"
+            tools:visibility="visible"
+            android:layout_marginTop="140dp"
+            android:indeterminateTint="@color/primary_variant2" />
     </FrameLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

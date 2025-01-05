@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Declaração de atributos personalizados -->
+    <declare-styleable name="Theme">
+        <attr name="colorPrimaryVariant2" format="color" />
+        <attr name="colorPrimaryVariant3" format="color" />
+        <attr name="colorSecondaryVariant2" format="color" />
+        <attr name="colorTertiaryVariant" format="color" />
+        <attr name="colorTertiaryAccent" format="color" />
+        <attr name="colorTertiaryNeutral" format="color" />
+        <attr name="colorTertiaryPastel" format="color" />
+        <attr name="colorTertiaryPastelLight" format="color" />
+        <attr name="colorSuccess" format="color" />
+    </declare-styleable>
+</resources>
