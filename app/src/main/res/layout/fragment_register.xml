@@ -82,6 +82,7 @@
 
             <com.google.android.material.button.MaterialButton
                 style="@style/PrimaryButton"
+                android:id="@+id/btn_createAccount"
                 android:layout_width="310dp"
                 android:layout_height="48dp"
                 android:text="CRIAR CONTA"
@@ -174,6 +175,8 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:layout_gravity="center"
+            android:visibility="invisible"
+            tools:visibility="visible"
             android:indeterminateTint="@color/primary_variant2"/>
 
     </FrameLayout>
