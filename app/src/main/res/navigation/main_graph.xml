@@ -30,10 +30,62 @@
         android:id="@+id/profileFragment"
         android:name="com.example.autoclean.ui.auth.ProfileFragment"
         android:label="fragment_profile"
-        tools:layout="@layout/fragment_profile" />
+        tools:layout="@layout/fragment_profile" >
+        <action
+            android:id="@+id/action_profileFragment_to_registerFragment"
+            app:destination="@id/registerFragment" />
+    </fragment>
     <fragment
         android:id="@+id/recoverAccountFragment"
         android:name="com.example.autoclean.ui.auth.RecoverAccountFragment"
         android:label="fragment_recover_account"
         tools:layout="@layout/fragment_recover_account" />
+    <fragment
+        android:id="@+id/phoneVerificationStartFragment"
+        android:name="com.example.autoclean.ui.auth.PhoneVerificationStartFragment"
+        android:label="fragment_phone_verification_start"
+        tools:layout="@layout/fragment_phone_verification_start" >
+        <action
+            android:id="@+id/action_phoneVerificationStartFragment_to_codeVerificationFragment"
+            app:destination="@id/codeVerificationFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/registerFragment"
+        android:name="com.example.autoclean.ui.auth.RegisterFragment"
+        android:label="RegisterFragment"
+        tools:layout="@layout/fragment_register"
+        >
+        <action
+            android:id="@+id/action_registerFragment_to_phoneVerificationStartFragment"
+            app:destination="@id/phoneVerificationStartFragment" />
+        <action
+            android:id="@+id/action_registerFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/codeVerificationFragment"
+        android:name="com.example.autoclean.ui.auth.CodeVerificationFragment"
+        android:label="CodeVerificationFragment"
+        tools:layout="@layout/fragment_code_verification">
+        <action
+            android:id="@+id/action_codeVerificationFragment_to_profileProfissionalFragment"
+            app:destination="@id/profileProfissionalFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/profileProfissionalFragment"
+        android:name="com.example.autoclean.ui.auth.ProfileProfissionalFragment"
+        android:label="fragment_profile_profissional"
+        tools:layout="@layout/fragment_profile_profissional" >
+        <action
+            android:id="@+id/action_profileProfissionalFragment_to_professionalVerificationFragment"
+            app:destination="@id/professionalVerificationFragment" />
+        <action
+            android:id="@+id/action_profileProfissionalFragment_to_professionalVerificationFragment2"
+            app:destination="@id/professionalVerificationFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/professionalVerificationFragment"
+        android:name="com.example.autoclean.ui.auth.ProfessionalVerificationFragment"
+        android:label="fragment_professional_verification"
+        tools:layout="@layout/fragment_professional_verification" />
 </navigation>

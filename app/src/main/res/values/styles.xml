@@ -30,4 +30,20 @@
         <item name="android:alpha">1.0</item>
     </style>
 
+    <style name="TransparentButton">
+        <item name="android:background">@drawable/transparent_with_border</item>
+        <item name="android:layout_width">344dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:gravity">start</item>
+        <item name="paddingStart">0dp</item>
+        <item name="paddingEnd">0dp</item>
+        <item name="android:paddingTop">7dp</item>
+        <item name="android:paddingBottom">0dp</item>
+        <item name="android:layout_marginStart">0dp</item>
+        <item name="android:textColor">@color/primary_variant2</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:drawableEnd">@drawable/arrow_next_small</item>
+        <item name="android:drawablePadding">2dp</item>
+    </style>
+
 </resources>

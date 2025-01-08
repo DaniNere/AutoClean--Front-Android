@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.auth.PhoneVerificationStartFragment">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <include
+            android:id="@+id/include6"
+            layout="@layout/fragment_header"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="0dp"
+            android:paddingTop="0dp"
+            android:paddingBottom="0dp" />
+
+        <!-- Texto e campos de entrada -->
+        <LinearLayout
+            android:id="@+id/linearLayout3"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="270dp"
+            android:background="@drawable/rounded_top_border"
+            android:orientation="vertical"
+            android:layout_gravity="top|center_horizontal">
+
+            <!-- Título -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_gravity="center"
+                android:text="Insira seu número de celular"
+                android:textSize="24sp"
+                android:fontFamily="@font/inter"
+                android:textAlignment="center"
+                android:textColor="@color/primary_variant2" />
+
+            <!-- Texto alinhado com os campos -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginHorizontal="32dp"
+                android:layout_marginTop="16dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="País"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/inter" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Celular"
+                    android:layout_weight="3"
+                    android:fontFamily="@font/inter" />
+            </LinearLayout>
+
+            <!-- Campos para código do país e número -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:orientation="horizontal"
+                android:layout_marginHorizontal="32dp"
+                android:layout_marginTop="8dp">
+
+                <Spinner
+                    android:id="@+id/spinner_country_code"
+                    style="@style/PrimaryEditText"
+                    android:layout_width="0dp"
+                    android:layout_height="42dp"
+                    android:layout_weight="1"
+                    android:layout_marginEnd="8dp"
+                    android:padding="8dp" />
+
+                <EditText
+                    android:id="@+id/et_phone_number"
+                    style="@style/PrimaryEditText"
+                    android:layout_width="0dp"
+                    android:layout_height="42dp"
+                    android:layout_weight="3"
+                    android:hint="(DDD) 00000-0000"
+                    android:inputType="phone"
+                    android:maxLength="15" />
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginStart="33dp"
+                android:layout_marginTop="20dp">
+
+                <TextView
+                    android:layout_width="320dp"
+                    android:layout_height="40dp"
+                    android:fontFamily="@font/inter"
+                    android:textColor="@color/secondary_variant"
+                    android:text="Você receberá um código para confirmar seu número de telefone."/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginTop="40dp"
+                android:layout_gravity="center_horizontal">
+
+            <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btn_continue"
+                    android:layout_width="292dp"
+                    android:layout_height="48dp"
+                    style="@style/PrimaryButton"
+                    android:text="CONTINUAR"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+    </FrameLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

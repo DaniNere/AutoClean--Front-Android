@@ -7,20 +7,17 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import com.example.autoclean.R
-import com.example.autoclean.databinding.FragmentLoginBinding
-import com.example.autoclean.databinding.FragmentProfileBinding
-import com.google.android.material.button.MaterialButton
+import com.example.autoclean.databinding.FragmentPhoneVerificationStartBinding
 
-
-class ProfileFragment : Fragment() {
-    private var _binding: FragmentProfileBinding? = null
+class PhoneVerificationStartFragment : Fragment() {
+    private var _binding: FragmentPhoneVerificationStartBinding? = null
     private val binding get() = _binding!!
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-       _binding = FragmentProfileBinding.inflate(inflater, container, false)
+        _binding = FragmentPhoneVerificationStartBinding.inflate(inflater, container, false)
         return binding.root
     }
 
@@ -30,14 +27,11 @@ class ProfileFragment : Fragment() {
         initListeners()
     }
 
-    private fun initListeners() {
-
-        val navigateToRegister: (View) -> Unit = {
-            findNavController().navigate(R.id.action_profileFragment_to_registerFragment)
+    private fun initListeners(){
+        binding.btnContinue.setOnClickListener{
+            findNavController().navigate(R.id.action_phoneVerificationStartFragment_to_codeVerificationFragment)
         }
 
-        binding.btnClient.setOnClickListener(navigateToRegister)
-        binding.btnProfissional.setOnClickListener(navigateToRegister)
     }
 
     override fun onDestroyView() {
