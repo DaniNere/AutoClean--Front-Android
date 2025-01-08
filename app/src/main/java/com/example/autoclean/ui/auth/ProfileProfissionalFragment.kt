@@ -12,8 +12,8 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import com.example.autoclean.R
-import com.example.autoclean.databinding.FragmentProfileBinding
 import com.example.autoclean.databinding.FragmentProfileProfissionalBinding
 
 class ProfileProfissionalFragment : Fragment() {
@@ -48,7 +48,8 @@ class ProfileProfissionalFragment : Fragment() {
                 "Informações enviadas com sucesso!",
                 Toast.LENGTH_SHORT
             ).show()
-            TODO()
+
+            findNavController().navigate(R.id.action_profileProfissionalFragment_to_professionalVerificationFragment2)
         }
     }
 

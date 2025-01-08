@@ -75,5 +75,17 @@
         android:id="@+id/profileProfissionalFragment"
         android:name="com.example.autoclean.ui.auth.ProfileProfissionalFragment"
         android:label="fragment_profile_profissional"
-        tools:layout="@layout/fragment_profile_profissional" />
+        tools:layout="@layout/fragment_profile_profissional" >
+        <action
+            android:id="@+id/action_profileProfissionalFragment_to_professionalVerificationFragment"
+            app:destination="@id/professionalVerificationFragment" />
+        <action
+            android:id="@+id/action_profileProfissionalFragment_to_professionalVerificationFragment2"
+            app:destination="@id/professionalVerificationFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/professionalVerificationFragment"
+        android:name="com.example.autoclean.ui.auth.ProfessionalVerificationFragment"
+        android:label="fragment_professional_verification"
+        tools:layout="@layout/fragment_professional_verification" />
 </navigation>
