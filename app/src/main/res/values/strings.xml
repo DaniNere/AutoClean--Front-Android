@@ -4,4 +4,8 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="Apple">Apple</string>
     <string name="Google">Google</string>
+
+    <string name="kit_details_title">Kit Details</string>
+    <string name="cleaning_kit_title">Cleaning Kit</string>
+
 </resources>

@@ -7,6 +7,7 @@ import android.text.SpannableString
 import android.text.Spanned
 import android.text.method.LinkMovementMethod
 import android.text.style.ClickableSpan
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -49,7 +50,9 @@ class ProfileProfissionalFragment : Fragment() {
                 Toast.LENGTH_SHORT
             ).show()
 
-            findNavController().navigate(R.id.action_profileProfissionalFragment_to_professionalVerificationFragment2)
+            findNavController().navigate(R.id.action_profileProfissionalFragment_to_professionalVerificationFragment)
+            Log.d("Navigation", "NavController: ${findNavController()}")
+
         }
     }
 

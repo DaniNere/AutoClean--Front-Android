@@ -29,7 +29,10 @@ class ProfessionalVerificationFragment : Fragment() {
     }
 
     private fun initListeners() {
-        TODO()
+        binding.btnContinue.setOnClickListener{
+            findNavController().navigate(R.id.action_professionalVerificationFragment_to_cleaningkitmanagerFragment)
+
+        }
     }
 
     private fun updateUserName(userName: String) {
