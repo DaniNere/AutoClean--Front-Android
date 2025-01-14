@@ -70,6 +70,7 @@
         <action
             android:id="@+id/action_codeVerificationFragment_to_profileProfissionalFragment"
             app:destination="@id/profileProfissionalFragment" />
+
     </fragment>
     <fragment
         android:id="@+id/profileProfissionalFragment"
@@ -79,13 +80,19 @@
         <action
             android:id="@+id/action_profileProfissionalFragment_to_professionalVerificationFragment"
             app:destination="@id/professionalVerificationFragment" />
-        <action
-            android:id="@+id/action_profileProfissionalFragment_to_professionalVerificationFragment2"
-            app:destination="@id/professionalVerificationFragment" />
     </fragment>
     <fragment
         android:id="@+id/professionalVerificationFragment"
         android:name="com.example.autoclean.ui.auth.ProfessionalVerificationFragment"
         android:label="fragment_professional_verification"
-        tools:layout="@layout/fragment_professional_verification" />
+        tools:layout="@layout/fragment_professional_verification" >
+        <action
+            android:id="@+id/action_professionalVerificationFragment_to_cleaningkitmanagerFragment"
+            app:destination="@id/cleaningkitmanagerFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/cleaningkitmanagerFragment"
+        android:name="com.example.autoclean.ui.auth.CleaningkitmanagerFragment"
+        android:label="fragment_cleaningkitmanager"
+        tools:layout="@layout/fragment_cleaningkitmanager" />
 </navigation>

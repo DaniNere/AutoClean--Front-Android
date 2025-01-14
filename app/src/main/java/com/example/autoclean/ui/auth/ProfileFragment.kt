@@ -35,7 +35,6 @@ class ProfileFragment : Fragment() {
         val navigateToRegister: (View) -> Unit = {
             findNavController().navigate(R.id.action_profileFragment_to_registerFragment)
         }
-
         binding.btnClient.setOnClickListener(navigateToRegister)
         binding.btnProfissional.setOnClickListener(navigateToRegister)
     }
