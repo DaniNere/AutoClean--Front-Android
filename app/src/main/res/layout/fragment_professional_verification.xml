@@ -57,7 +57,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
                     android:fontFamily="@font/inter"
-                    android:text="Veja o que você precisa fazer para criar sua conta."
+                    android:text="@string/info_instructions"
                     android:textColor="@color/secondary_variant" />
 
 
@@ -72,7 +72,7 @@
 
                 <Button
                     style="@style/TransparentButton"
-                    android:text="Foto do perfil" />
+                    android:text="@string/btn_profile_photo" />
 
                 <ImageView
                     android:layout_width="wrap_content"
@@ -83,7 +83,7 @@
 
                 <com.google.android.material.button.MaterialButton
                     style="@style/TransparentButton"
-                    android:text="Foto segurando a CNH" />
+                    android:text="@string/btn_photo_with_cnh" />
 
                 <ImageView
                     android:layout_width="wrap_content"
@@ -94,7 +94,7 @@
 
                 <com.google.android.material.button.MaterialButton
                     style="@style/TransparentButton"
-                    android:text="CNH - Carteira de Motorista" />
+                    android:text="@string/btn_cnh" />
 
                 <ImageView
                     android:layout_width="wrap_content"
@@ -105,7 +105,7 @@
 
                 <com.google.android.material.button.MaterialButton
                     style="@style/TransparentButton"
-                    android:text="CRLV - Documento do Veículo" />
+                    android:text="@string/btn_crlv" />
 
                 <ImageView
                     android:layout_width="wrap_content"
@@ -128,7 +128,7 @@
                     style="@style/PrimaryButton"
                     android:layout_width="230dp"
                     android:layout_height="48dp"
-                    android:text="CONTINUAR" />
+                    android:text="@string/btn_continue" />
 
             </LinearLayout>
         </LinearLayout>

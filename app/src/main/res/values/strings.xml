@@ -1,18 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
+
+    <!-- App Name -->
     <string name="app_name">AutoClean</string>
-    <!-- TODO: Remove or change this placeholder text -->
+
+    <!-- Placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
     <!-- Tela Header -->
     <string name="Header_title">Seu carro limpo, sem sair de casa!</string>
 
+    <!-- Tela Login -->
+    <string name="login_title">Login</string>
+    <string name="hint_email">Email</string>
+    <string name="hint_password">Senha</string>
+    <string name="button_login">ENTRAR</string>
+    <string name="or_continue_with">Ou continue com</string>
+    <string name="google_login">Google</string>
+    <string name="apple_login">Apple</string>
+    <string name="no_account">Não possui uma conta?</string>
+    <string name="create_account">Criar Conta</string>
+    <string name="forgot_password">Esqueceu a Senha?</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
+    <!-- Tela de Cadastro -->
+    <string name="register_title">Cadastro</string>
+    <string name="name_hint">Nome e Sobrenome</string>
+    <string name="email_hint">Email</string>
+    <string name="password_hint">Senha</string>
+    <string name="create_account_button">CRIAR CONTA</string>
+    <string name="already_have_account">Já possui conta?</string>
+    <string name="login_text">Entrar</string>
+
+    <!-- Opções de Login -->
     <string name="Apple">Apple</string>
     <string name="Google">Google</string>
 
+    <!-- Recuperação de Conta -->
+    <string name="recover_account_title">Recuperar Conta</string>
+    <string name="recover_account_instructions">Informe seu e-mail de cadastro para receber\num link para a alteração da senha.</string>
+    <string name="send_button">ENVIAR</string>
 
+    <!-- Verificação de Telefone -->
+    <string name="insert_phone_number">Insira seu número de celular</string>
+    <string name="country">País</string>
+    <string name="phone">Celular</string>
+    <string name="phone_hint">(DDD) 00000-0000</string>
+    <string name="verification_message">Você receberá um código para confirmar seu número de telefone.</string>
+    <string name="btn_continue">CONTINUAR</string>
 
+    <!-- Perfil do Usuário -->
+    <string name="choose_profile">Escolha seu Perfil</string>
+    <string name="btn_client">Cliente</string>
+    <string name="btn_profissional">Profissional</string>
+
+    <!-- Perfil Profissional -->
+    <string name="personal_info">Informações Pessoais</string>
+    <string name="fill_info_to_continue">Preencha as informações abaixo para continuar.</string>
+    <string name="full_name_hint">Nome Completo</string>
+    <string name="phone_hint">(000) 90000-0000</string>
+    <string name="cpf_cnpj_hint">CPF ou CNPJ</string>
+    <string name="birth_date_hint">Data de Nascimento</string>
+    <string name="terms_text">Eu li e aceito os termos e condições.</string>
+
+    <!-- Verificação Profissional -->
+    <string name="info_instructions">Veja o que você precisa fazer para criar sua conta.</string>
+    <string name="btn_profile_photo">Foto do perfil</string>
+    <string name="btn_photo_with_cnh">Foto segurando a CNH</string>
+    <string name="btn_cnh">CNH - Carteira de Motorista</string>
+    <string name="btn_crlv">CRLV - Documento do Veículo</string>
+
+    <!-- Verificação de Código -->
+    <string name="insert_access_code">Insira o código de acesso</string>
+    <string name="enter_4_digit_code">Digite o código de 4 dígitos que foi enviado para</string>
+    <string name="example_phone">(DDD) 90000-0000</string>
+    <string name="no_code_received">Não recebi o código</string>
+    <string name="btn_continue">CONTINUAR</string>
+
+    <!-- Kit Limpeza -->
+    <string name="kit_cleaning_title">Kit Limpeza</string>
+    <string name="kit_cleaning_description">Você precisa adquirir o kit de Limpeza da Auto Clean.</string>
+
+    <!-- Detalhes do Kit -->
+    <string name="kit_details">O que vem no Kit?</string>
     <string name="kit_details_title">Kit Details</string>
     <string name="cleaning_kit_title">Cleaning Kit</string>
 

@@ -33,7 +33,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Cadastro"
+                android:text="@string/register_title"
                 android:textColor="@color/primary_variant2"
                 android:textSize="32sp"
                 android:fontFamily="@font/inter"
@@ -49,7 +49,7 @@
                 android:layout_marginTop="4dp"
                 android:layout_marginBottom="5dp"
                 android:layout_gravity="center_horizontal"
-                android:hint="Nome e Sobrenome"
+                android:hint="@string/name_hint"
                 android:inputType="text"
                 android:padding="16dp"
                 android:textSize="14sp" />
@@ -61,7 +61,7 @@
                 android:layout_marginTop="4dp"
                 android:layout_marginBottom="5dp"
                 android:layout_gravity="center_horizontal"
-                android:hint="Email"
+                android:hint="@string/email_hint"
                 android:inputType="textEmailAddress"
                 android:padding="16dp"
                 android:textSize="14sp" />
@@ -74,7 +74,7 @@
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="4dp"
                 android:layout_marginBottom="7dp"
-                android:hint="Senha"
+                android:hint="@string/password_hint"
                 android:inputType="textPassword"
                 android:padding="16dp"
                 android:textSize="14sp" />
@@ -85,7 +85,7 @@
                 android:id="@+id/btn_createAccount"
                 android:layout_width="310dp"
                 android:layout_height="48dp"
-                android:text="CRIAR CONTA"
+                android:text="@string/create_account_button"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="10dp" />
@@ -101,7 +101,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Ou continue com"
+                    android:text="@string/or_continue_with"
                     android:textColor="@color/primary_variant2"
                     android:layout_gravity="center_horizontal"/>
             </LinearLayout>
@@ -120,7 +120,7 @@
                     android:layout_height="58dp"
                     android:layout_weight="1"
                     android:layout_marginStart="1dp"
-                    android:text="Google"
+                    android:text="@string/Google"
                     app:backgroundTint="@android:color/transparent"
                     app:icon="@drawable/google_1"
                     app:iconSize="24dp"
@@ -133,7 +133,7 @@
                     android:layout_height="58dp"
                     android:layout_weight="1"
                     android:layout_marginStart="40dp"
-                    android:text="Apple"
+                    android:text="@string/Apple"
                     app:backgroundTint="@android:color/transparent"
                     app:icon="@drawable/apple1"
                     app:iconSize="24dp"
@@ -152,7 +152,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Já possui conta?"
+                    android:text="@string/already_have_account"
                     android:layout_gravity="center_horizontal"
                     android:textColor="@color/secondary_variant"
                     android:textSize="16dp" />
@@ -161,7 +161,7 @@
                     android:id="@+id/clickableText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Entrar"
+                    android:text="@string/login_text"
                     android:textColor="@color/secondary_variant2"
                     android:autoLink="web"
                     android:linksClickable="true"

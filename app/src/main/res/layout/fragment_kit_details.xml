@@ -34,7 +34,7 @@
                 android:layout_gravity="center"
                 android:layout_marginTop="15dp"
                 android:fontFamily="@font/inter"
-                android:text="O que vem no Kit?"
+                android:text="@string/kit_details"
                 android:textColor="@color/primary_variant2"
                 android:textSize="32dp" />
 

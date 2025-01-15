@@ -34,7 +34,7 @@
                 android:layout_gravity="center_horizontal"
                 android:layout_marginBottom="12dp"
                 android:fontFamily="@font/inter"
-                android:text="Recuperar Conta"
+                android:text="@string/recover_account_title"
                 android:textColor="@color/primary_variant2"
                 android:textSize="32sp" />
 
@@ -46,7 +46,7 @@
                 android:layout_marginEnd="12dp"
                 android:layout_marginBottom="12dp"
                 android:fontFamily="@font/inter"
-                android:text="Informe seu e-mail de cadastro para receber \n um link para a alteração da senha."
+                android:text="@string/recover_account_instructions"
                 android:textAlignment="center"
                 android:textColor="@color/primary_variant2" />
 
@@ -58,7 +58,7 @@
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="4dp"
                 android:layout_marginBottom="5dp"
-                android:hint="Email"
+                android:hint="@string/email_hint"
                 android:inputType="textEmailAddress"
                 android:padding="16dp"
                 android:textSize="14sp" />
@@ -70,7 +70,7 @@
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="10dp"
-                android:text="ENVIAR" />
+                android:text="@string/send_button" />
 
         </LinearLayout>
 
