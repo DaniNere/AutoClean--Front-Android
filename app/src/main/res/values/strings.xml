@@ -2,8 +2,16 @@
     <string name="app_name">AutoClean</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <!-- Tela Header -->
+    <string name="Header_title">Seu carro limpo, sem sair de casa!</string>
+
+
+    <!-- TODO: Remove or change this placeholder text -->
     <string name="Apple">Apple</string>
     <string name="Google">Google</string>
+
+
 
     <string name="kit_details_title">Kit Details</string>
     <string name="cleaning_kit_title">Cleaning Kit</string>
