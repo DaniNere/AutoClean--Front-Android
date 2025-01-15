@@ -38,7 +38,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Kit Limpeza"
+                    android:text="@string/kit_cleaning_title"
                     android:textSize="36dp"
                     android:fontFamily="@font/inter"
                     android:textColor="@color/primary_variant2"
@@ -47,7 +47,7 @@
                 <TextView
                     android:layout_width="201dp"
                     android:layout_height="60dp"
-                    android:text="Você precisa adquirir o kit de Limpeza da Auto Clean."
+                    android:text="@string/kit_cleaning_description"
                     android:textSize="16dp"
                     android:fontFamily="@font/inter"
                     android:textColor="@color/secondary_variant"

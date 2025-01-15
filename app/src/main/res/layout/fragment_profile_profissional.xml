@@ -38,7 +38,7 @@
                 android:layout_gravity="center_horizontal"
                 android:layout_marginBottom="12dp"
                 android:fontFamily="@font/inter"
-                android:text="Informações Pessoais"
+                android:text="@string/personal_info"
                 android:textColor="@color/primary_variant2"
                 android:textSize="32sp" />
 
@@ -47,7 +47,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:fontFamily="@font/inter"
-                android:text="Preencha as informações abaixo para continuar."
+                android:text="@string/fill_info_to_continue"
                 android:textColor="@color/secondary_variant"
                 android:textSize="16dp" />
         </LinearLayout>
@@ -68,7 +68,7 @@
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="4dp"
                 android:layout_marginBottom="5dp"
-                android:hint="Nome Completo"
+                android:hint="@string/full_name_hint"
                 android:inputType="textPersonName"
                 android:padding="16dp"
                 android:textSize="14sp" />
@@ -80,7 +80,7 @@
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="4dp"
                 android:layout_marginBottom="5dp"
-                android:hint="(000) 90000-0000"
+                android:hint="@string/phone_hint"
                 android:inputType="phone"
                 android:padding="16dp"
                 android:textSize="14sp" />
@@ -92,7 +92,7 @@
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="4dp"
                 android:layout_marginBottom="5dp"
-                android:hint="CPF ou CNPJ"
+                android:hint="@string/cpf_cnpj_hint"
                 android:inputType="number"
                 android:padding="16dp"
                 android:textSize="14sp" />
@@ -104,7 +104,7 @@
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="4dp"
                 android:layout_marginBottom="5dp"
-                android:hint="Data de Nascimento"
+                android:hint="@string/birth_date_hint"
                 android:inputType="date"
                 android:padding="16dp"
                 android:textSize="14sp" />
@@ -152,7 +152,7 @@
                 style="@style/PrimaryButton"
                 android:layout_width="292dp"
                 android:layout_height="48dp"
-                android:text="CONTINUAR" />
+                android:text="@string/btn_continue" />
 
 
         </LinearLayout>
