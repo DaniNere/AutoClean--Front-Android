@@ -57,7 +57,6 @@
     <string name="personal_info">Informações Pessoais</string>
     <string name="fill_info_to_continue">Preencha as informações abaixo para continuar.</string>
     <string name="full_name_hint">Nome Completo</string>
-    <string name="phone_hint">(000) 90000-0000</string>
     <string name="cpf_cnpj_hint">CPF ou CNPJ</string>
     <string name="birth_date_hint">Data de Nascimento</string>
     <string name="terms_text">Eu li e aceito os termos e condições.</string>
@@ -74,7 +73,7 @@
     <string name="enter_4_digit_code">Digite o código de 4 dígitos que foi enviado para</string>
     <string name="example_phone">(DDD) 90000-0000</string>
     <string name="no_code_received">Não recebi o código</string>
-    <string name="btn_continue">CONTINUAR</string>
+
 
     <!-- Kit Limpeza -->
     <string name="kit_cleaning_title">Kit Limpeza</string>
@@ -84,5 +83,6 @@
     <string name="kit_details">O que vem no Kit?</string>
     <string name="kit_details_title">Kit Details</string>
     <string name="cleaning_kit_title">Cleaning Kit</string>
+    <string name="choose_kit_title">Choose Kit</string>
 
 </resources>

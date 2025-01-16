@@ -37,6 +37,7 @@ class CleaningkitmanagerFragment : Fragment() {
 
         pageAdapter.addFragment(CleaningKitFragment(), R.string.cleaning_kit_title)
         pageAdapter.addFragment(KitDetailsFragment(), R.string.kit_details_title)
+        pageAdapter.addFragment(ChooseKitFragment(), R.string.choose_kit_title)
 
         binding.viewPager.offscreenPageLimit = pageAdapter.itemCount
 
