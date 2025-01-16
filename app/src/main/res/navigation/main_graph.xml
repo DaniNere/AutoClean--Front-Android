@@ -94,5 +94,14 @@
         android:id="@+id/cleaningkitmanagerFragment"
         android:name="com.example.autoclean.ui.auth.CleaningkitmanagerFragment"
         android:label="fragment_cleaningkitmanager"
-        tools:layout="@layout/fragment_cleaningkitmanager" />
+        tools:layout="@layout/fragment_cleaningkitmanager" >
+        <action
+            android:id="@+id/action_cleaningkitmanagerFragment_to_validationKitFragment"
+            app:destination="@id/validationKitFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/validationKitFragment"
+        android:name="com.example.autoclean.ui.auth.ValidationKitFragment"
+        android:label="fragment_validation_kit"
+        tools:layout="@layout/fragment_validation_kit" />
 </navigation>
