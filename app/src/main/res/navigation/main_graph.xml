@@ -98,10 +98,18 @@
         <action
             android:id="@+id/action_cleaningkitmanagerFragment_to_validationKitFragment"
             app:destination="@id/validationKitFragment" />
+        <action
+            android:id="@+id/action_cleaningkitmanagerFragment_to_cleaningKitPaymentFragment"
+            app:destination="@id/cleaningKitPaymentFragment" />
     </fragment>
     <fragment
         android:id="@+id/validationKitFragment"
         android:name="com.example.autoclean.ui.auth.ValidationKitFragment"
         android:label="fragment_validation_kit"
         tools:layout="@layout/fragment_validation_kit" />
+    <fragment
+        android:id="@+id/cleaningKitPaymentFragment"
+        android:name="com.example.autoclean.ui.auth.CleaningKitPaymentFragment"
+        android:label="fragment_cleaning_kit_payment"
+        tools:layout="@layout/fragment_cleaning_kit_payment" />
 </navigation>
