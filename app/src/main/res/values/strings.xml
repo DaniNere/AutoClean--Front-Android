@@ -85,4 +85,17 @@
     <string name="cleaning_kit_title">Cleaning Kit</string>
     <string name="choose_kit_title">Choose Kit</string>
 
+    <!-- Card Payment -->
+    <string name="payment_title">Pagamento</string>
+    <string name="card_number">Número do Cartão</string>
+    <string name="card_number_hint">0000 0000 0000 0000</string>
+    <string name="card_holder_name">Nome no Cartão</string>
+    <string name="card_holder_hint">Nome como escrito no cartão</string>
+    <string name="validity_date">Data de Validade</string>
+    <string name="validity_date_hint">MM/AA</string>
+    <string name="cvv">CVV</string>
+    <string name="cvv_hint">123</string>
+    <string name="installments">Parcelamento</string>
+    <string name="installments_hint">Em 1x de R$ 3000,00</string>
+
 </resources>
