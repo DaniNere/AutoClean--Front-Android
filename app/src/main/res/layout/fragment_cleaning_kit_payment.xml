@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.auth.CleaningKitPaymentFragment">
+    tools:context=".ui.auth.kits.CleaningKitPaymentFragment">
 
     <FrameLayout
         android:layout_width="match_parent"
@@ -44,6 +44,7 @@
             android:layout_marginTop="28dp"/>
 
                 <androidx.cardview.widget.CardView
+                    android:id="@+id/btn_creditCard"
                     android:layout_width="358dp"
                     android:layout_height="80dp"
                     android:layout_gravity="center"
@@ -89,6 +90,7 @@
 
 
             <androidx.cardview.widget.CardView
+                android:id="@+id/btn_pix"
                 android:layout_width="358dp"
                 android:layout_height="80dp"
                 android:layout_gravity="center"
