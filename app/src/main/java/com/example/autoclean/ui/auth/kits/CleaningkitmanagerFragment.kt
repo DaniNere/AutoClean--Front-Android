@@ -1,4 +1,4 @@
-package com.example.autoclean.ui.auth
+package com.example.autoclean.ui.auth.kits
 
 import android.graphics.drawable.ShapeDrawable
 import android.os.Bundle

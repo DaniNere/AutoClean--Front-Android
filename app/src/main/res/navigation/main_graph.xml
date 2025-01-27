@@ -28,7 +28,7 @@
     </fragment>
     <fragment
         android:id="@+id/profileFragment"
-        android:name="com.example.autoclean.ui.auth.ProfileFragment"
+        android:name="com.example.autoclean.ui.auth.profile.ProfileFragment"
         android:label="fragment_profile"
         tools:layout="@layout/fragment_profile" >
         <action
@@ -42,7 +42,7 @@
         tools:layout="@layout/fragment_recover_account" />
     <fragment
         android:id="@+id/phoneVerificationStartFragment"
-        android:name="com.example.autoclean.ui.auth.PhoneVerificationStartFragment"
+        android:name="com.example.autoclean.ui.auth.verification.PhoneVerificationStartFragment"
         android:label="fragment_phone_verification_start"
         tools:layout="@layout/fragment_phone_verification_start" >
         <action
@@ -64,7 +64,7 @@
     </fragment>
     <fragment
         android:id="@+id/codeVerificationFragment"
-        android:name="com.example.autoclean.ui.auth.CodeVerificationFragment"
+        android:name="com.example.autoclean.ui.auth.verification.CodeVerificationFragment"
         android:label="CodeVerificationFragment"
         tools:layout="@layout/fragment_code_verification">
         <action
@@ -74,7 +74,7 @@
     </fragment>
     <fragment
         android:id="@+id/profileProfissionalFragment"
-        android:name="com.example.autoclean.ui.auth.ProfileProfissionalFragment"
+        android:name="com.example.autoclean.ui.auth.profile.ProfileProfissionalFragment"
         android:label="fragment_profile_profissional"
         tools:layout="@layout/fragment_profile_profissional" >
         <action
@@ -83,7 +83,7 @@
     </fragment>
     <fragment
         android:id="@+id/professionalVerificationFragment"
-        android:name="com.example.autoclean.ui.auth.ProfessionalVerificationFragment"
+        android:name="com.example.autoclean.ui.auth.verification.ProfessionalVerificationFragment"
         android:label="fragment_professional_verification"
         tools:layout="@layout/fragment_professional_verification" >
         <action
@@ -92,7 +92,7 @@
     </fragment>
     <fragment
         android:id="@+id/cleaningkitmanagerFragment"
-        android:name="com.example.autoclean.ui.auth.CleaningkitmanagerFragment"
+        android:name="com.example.autoclean.ui.auth.kits.CleaningkitmanagerFragment"
         android:label="fragment_cleaningkitmanager"
         tools:layout="@layout/fragment_cleaningkitmanager" >
         <action
@@ -104,12 +104,29 @@
     </fragment>
     <fragment
         android:id="@+id/validationKitFragment"
-        android:name="com.example.autoclean.ui.auth.ValidationKitFragment"
+        android:name="com.example.autoclean.ui.auth.kits.ValidationKitFragment"
         android:label="fragment_validation_kit"
         tools:layout="@layout/fragment_validation_kit" />
     <fragment
         android:id="@+id/cleaningKitPaymentFragment"
-        android:name="com.example.autoclean.ui.auth.CleaningKitPaymentFragment"
+        android:name="com.example.autoclean.ui.auth.kits.CleaningKitPaymentFragment"
         android:label="fragment_cleaning_kit_payment"
-        tools:layout="@layout/fragment_cleaning_kit_payment" />
+        tools:layout="@layout/fragment_cleaning_kit_payment" >
+        <action
+            android:id="@+id/action_cleaningKitPaymentFragment_to_cardPaymentFragment"
+            app:destination="@id/cardPaymentFragment" />
+        <action
+            android:id="@+id/action_cleaningKitPaymentFragment_to_pixPaymentFragment"
+            app:destination="@id/pixPaymentFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/cardPaymentFragment"
+        android:name="com.example.autoclean.ui.payment.CardPaymentFragment"
+        android:label="fragment_card_payment"
+        tools:layout="@layout/fragment_card_payment" />
+    <fragment
+        android:id="@+id/pixPaymentFragment"
+        android:name="com.example.autoclean.ui.payment.PixPaymentFragment"
+        android:label="fragment_pix_payment"
+        tools:layout="@layout/fragment_pix_payment" />
 </navigation>

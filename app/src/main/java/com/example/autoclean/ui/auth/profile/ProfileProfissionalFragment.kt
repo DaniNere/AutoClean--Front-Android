@@ -1,4 +1,4 @@
-package com.example.autoclean.ui.auth
+package com.example.autoclean.ui.auth.profile
 
 import android.content.Intent
 import android.net.Uri

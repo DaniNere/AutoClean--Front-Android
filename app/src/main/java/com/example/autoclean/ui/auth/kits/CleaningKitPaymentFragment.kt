@@ -1,4 +1,4 @@
-package com.example.autoclean.ui.auth
+package com.example.autoclean.ui.auth.kits
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -7,17 +7,20 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import com.example.autoclean.R
-import com.example.autoclean.databinding.FragmentProfessionalVerificationBinding
+import com.example.autoclean.databinding.FragmentCleaningKitPaymentBinding
 
-class ProfessionalVerificationFragment : Fragment() {
-    private var _binding: FragmentProfessionalVerificationBinding? = null
+
+class CleaningKitPaymentFragment : Fragment() {
+
+    private var _binding: FragmentCleaningKitPaymentBinding? = null
     private val binding get() = _binding!!
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = FragmentProfessionalVerificationBinding.inflate(inflater, container, false)
+        _binding = FragmentCleaningKitPaymentBinding.inflate(inflater, container, false)
         return binding.root
     }
 
@@ -25,22 +28,22 @@ class ProfessionalVerificationFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         initListeners()
-        updateUserName("Carlos")
     }
 
-    private fun initListeners() {
-        binding.btnContinue.setOnClickListener{
-            findNavController().navigate(R.id.action_professionalVerificationFragment_to_cleaningkitmanagerFragment)
+    private fun initListeners(){
 
+        binding.btnCreditCard.setOnClickListener{
+            findNavController().navigate(R.id.action_cleaningKitPaymentFragment_to_cardPaymentFragment)
         }
-    }
 
-    private fun updateUserName(userName: String) {
-        binding.nameProfile.text = "Olá, $userName"
+        binding.btnPix.setOnClickListener{
+            findNavController().navigate(R.id.action_cleaningKitPaymentFragment_to_pixPaymentFragment)
+        }
     }
 
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
     }
+
 }

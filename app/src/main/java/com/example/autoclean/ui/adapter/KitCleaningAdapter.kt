@@ -6,9 +6,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.autoclean.R
 import com.example.autoclean.data.model.ItemKitCleaning
-import com.example.autoclean.databinding.FragmentCleaningKitBinding
 import com.example.autoclean.databinding.ItemKitCleaningBinding
-import com.example.autoclean.ui.auth.KitDetailsFragment
 
 
 class KitCleaningAdapter(
