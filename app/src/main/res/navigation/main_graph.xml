@@ -16,7 +16,7 @@
     </fragment>
     <fragment
         android:id="@+id/loginFragment"
-        android:name="com.example.autoclean.ui.auth.LoginFragment"
+        android:name="com.example.autoclean.ui.auth.login.LoginFragment"
         android:label="fragment_login"
         tools:layout="@layout/fragment_login" >
         <action
@@ -37,7 +37,7 @@
     </fragment>
     <fragment
         android:id="@+id/recoverAccountFragment"
-        android:name="com.example.autoclean.ui.auth.RecoverAccountFragment"
+        android:name="com.example.autoclean.ui.auth.forgot.RecoverAccountFragment"
         android:label="fragment_recover_account"
         tools:layout="@layout/fragment_recover_account" />
     <fragment
@@ -51,7 +51,7 @@
     </fragment>
     <fragment
         android:id="@+id/registerFragment"
-        android:name="com.example.autoclean.ui.auth.RegisterFragment"
+        android:name="com.example.autoclean.ui.auth.register.RegisterFragment"
         android:label="RegisterFragment"
         tools:layout="@layout/fragment_register"
         >

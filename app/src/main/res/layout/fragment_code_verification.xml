@@ -8,16 +8,17 @@
 
     <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <include
             android:id="@+id/include6"
             layout="@layout/fragment_header"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:padding="0dp"
-            android:paddingTop="0dp"
-            android:paddingBottom="0dp"/>
+            android:layout_height="match_parent"/>
 
         <LinearLayout
             android:id="@+id/linearLayout3"
@@ -34,8 +35,8 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
                 android:layout_gravity="center"
+                android:layout_marginTop="43dp"
                 android:text="@string/insert_access_code"
                 android:textSize="24sp"
                 android:fontFamily="@font/inter"
@@ -49,7 +50,7 @@
                 android:layout_gravity="center"
                 android:textAlignment="center"
                 android:layout_marginHorizontal="32dp"
-                android:layout_marginTop="5dp"
+                android:layout_marginTop="8dp"
                 android:textColor="@color/secondary_variant"
                 android:fontFamily="@font/inter"
                 android:textSize="12sp" />
@@ -61,7 +62,7 @@
                 android:fontFamily="@font/inter"
                 android:textColor="@color/primary_variant2"
                 android:layout_gravity="center_horizontal"
-                android:layout_marginTop="8dp" />
+                android:layout_marginTop="7dp" />
 
 
             <LinearLayout
@@ -69,7 +70,7 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:layout_gravity="center"
-                android:layout_marginTop="16dp">
+                android:layout_marginTop="30dp">
 
                 <EditText
                     android:id="@+id/cod_access1"
@@ -117,27 +118,39 @@
                     android:gravity="center"
                     android:importantForAccessibility="yes"
                     android:imeOptions="actionDone" />
+
             </LinearLayout>
 
-            <TextView
-                android:id="@+id/no_code"
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/inter"
-                android:text="@string/no_code_received"
-                android:textSize="14dp"
-                android:textColor="@color/primary_variant2"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginTop="20dp"
-                android:clickable="true"
-                android:focusable="true"
-                android:onClick="onNoCodeClicked" />
+                android:orientation="vertical"
+                android:layout_gravity="center"
+                android:layout_marginTop="31dp">
+
+                <TextView
+                    android:id="@+id/no_code"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/inter"
+                    android:text="@string/no_code_received"
+                    android:textSize="14dp"
+                    android:textColor="@color/secondary_variant2"
+                    android:textStyle="bold"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:onClick="onNoCodeClicked" />
+
+
+            </LinearLayout>
+
+
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:layout_gravity="center_horizontal"
-                android:layout_marginTop="20dp">
+                android:layout_marginTop="63dp">
 
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/btn_continue"

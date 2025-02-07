@@ -4,67 +4,68 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.auth.LoginFragment">
+    tools:context=".ui.auth.login.LoginFragment">
 
     <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <include
             android:id="@+id/include6"
             layout="@layout/fragment_header"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:padding="0dp"
-            android:paddingTop="0dp"
-            android:paddingBottom="0dp" />
+            android:layout_height="match_parent"/>
 
         <LinearLayout
             android:id="@+id/linearLayout"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:background="@drawable/rounded_top_border"
-            android:layout_marginTop="270dp"
             android:layout_alignParentBottom="true"
-            android:paddingBottom="16dp">
+            android:layout_marginTop="270dp"
+            android:background="@drawable/rounded_top_border"
+            android:orientation="vertical">
 
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="17dp"
+                android:fontFamily="@font/inter"
                 android:text="@string/register_title"
                 android:textColor="@color/primary_variant2"
-                android:textSize="32sp"
-                android:fontFamily="@font/inter"
-                android:layout_marginBottom="12dp"
-                android:layout_gravity="center_horizontal"/>
-
+                android:textSize="32sp" />
 
 
             <EditText
                 style="@style/PrimaryEditText"
                 android:layout_width="310dp"
                 android:layout_height="48dp"
-                android:layout_marginTop="4dp"
-                android:layout_marginBottom="5dp"
                 android:layout_gravity="center_horizontal"
+                android:layout_marginTop="19dp"
                 android:hint="@string/name_hint"
                 android:inputType="text"
                 android:padding="16dp"
-                android:textSize="14sp" />
+                android:textSize="14sp"
+                android:drawableStart="@drawable/ic_user_small"
+                android:drawablePadding="8dp"/>
 
             <EditText
                 style="@style/PrimaryEditText"
                 android:layout_width="310dp"
                 android:layout_height="48dp"
-                android:layout_marginTop="4dp"
-                android:layout_marginBottom="5dp"
                 android:layout_gravity="center_horizontal"
+                android:layout_marginTop="14dp"
                 android:hint="@string/email_hint"
                 android:inputType="textEmailAddress"
                 android:padding="16dp"
-                android:textSize="14sp" />
+                android:textSize="14sp"
+                android:drawableStart="@drawable/ic_email"
+                android:drawablePadding="8dp"/>
 
 
             <EditText
@@ -72,88 +73,105 @@
                 android:layout_width="310dp"
                 android:layout_height="48dp"
                 android:layout_gravity="center_horizontal"
-                android:layout_marginTop="4dp"
-                android:layout_marginBottom="7dp"
+                android:layout_marginTop="14dp"
                 android:hint="@string/password_hint"
                 android:inputType="textPassword"
                 android:padding="16dp"
-                android:textSize="14sp" />
+                android:textSize="14sp"
+                android:drawableStart="@drawable/ic_password"
+                android:drawablePadding="8dp"
+                android:drawableTint="@color/secondary_variant"
+                />
 
 
             <com.google.android.material.button.MaterialButton
-                style="@style/PrimaryButton"
                 android:id="@+id/btn_createAccount"
+                style="@style/PrimaryButton"
                 android:layout_width="310dp"
                 android:layout_height="48dp"
-                android:text="@string/create_account_button"
                 android:layout_gravity="center_horizontal"
-                android:layout_marginTop="10dp"
-                android:layout_marginBottom="10dp" />
+                android:layout_marginTop="27dp"
+                android:layout_marginBottom="10dp"
+                android:text="@string/create_account_button" />
 
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:layout_marginTop="5dp"
-                android:layout_marginBottom="0dp">
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:layout_marginTop="14dp">
 
-                <TextView
+                <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginEnd="25dp"
+                    android:layout_marginStart="12dp"
+                    android:src="@drawable/line_4" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
                     android:text="@string/or_continue_with"
-                    android:textColor="@color/primary_variant2"
-                    android:layout_gravity="center_horizontal"/>
+                    android:textColor="@color/secondary_variant"
+                    android:textSize="16sp" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="25dp"
+                    android:layout_marginStart="12dp"
+                    android:src="@drawable/line_4" />
+
             </LinearLayout>
 
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_marginTop="12dp"
-                android:layout_marginBottom="0dp">
+                android:layout_marginBottom="0dp"
+                android:orientation="horizontal">
 
                 <com.google.android.material.button.MaterialButton
                     style="@style/SecondButton"
                     android:layout_width="0dp"
                     android:layout_height="58dp"
+                    android:layout_margin="15dp"
                     android:layout_weight="1"
-                    android:layout_marginStart="1dp"
-                    android:text="@string/Google"
-                    app:backgroundTint="@android:color/transparent"
-                    app:icon="@drawable/google_1"
+                    android:text="@string/google_login"
+                    app:icon="@drawable/icon_google"
+                    app:iconGravity="textStart"
                     app:iconSize="24dp"
-                    app:iconTint="@color/secondary_variant2"
-                    app:iconGravity="textStart" />
+                    app:iconTint="@null" />
 
                 <com.google.android.material.button.MaterialButton
                     style="@style/SecondButton"
                     android:layout_width="0dp"
                     android:layout_height="58dp"
+                    android:layout_margin="15dp"
                     android:layout_weight="1"
-                    android:layout_marginStart="40dp"
-                    android:text="@string/Apple"
-                    app:backgroundTint="@android:color/transparent"
+                    android:text="@string/apple_login"
                     app:icon="@drawable/apple1"
+                    app:iconGravity="textStart"
                     app:iconSize="24dp"
-                    app:iconTint="@color/black"
-                    app:iconGravity="textStart" />
+                    app:iconTint="@color/black" />
             </LinearLayout>
 
 
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
                 android:layout_gravity="center_horizontal"
-                android:layout_marginTop="17dp">
+                android:layout_marginTop="12dp"
+                android:orientation="horizontal">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/already_have_account"
                     android:layout_gravity="center_horizontal"
+                    android:text="@string/already_have_account"
                     android:textColor="@color/secondary_variant"
                     android:textSize="16dp" />
 
@@ -161,11 +179,11 @@
                     android:id="@+id/clickableText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/login_text"
-                    android:textColor="@color/secondary_variant2"
+                    android:layout_marginStart="8dp"
                     android:autoLink="web"
                     android:linksClickable="true"
-                    android:layout_marginStart="8dp" />
+                    android:text="@string/login_text"
+                    android:textColor="@color/secondary_variant2" />
             </LinearLayout>
 
         </LinearLayout>
@@ -178,6 +196,7 @@
             android:visibility="invisible"
             tools:visibility="visible"
             android:indeterminateTint="@color/primary_variant2"/>
+
 
     </FrameLayout>
 

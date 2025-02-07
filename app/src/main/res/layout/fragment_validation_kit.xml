@@ -37,7 +37,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="28dp"
                 android:fontFamily="@font/inter"
-                android:text="Validação do Kit"
+                android:text="@string/validation_kit_title"
                 android:textAlignment="center"
                 android:textColor="@color/primary_variant2"
                 android:textSize="32dp"
@@ -48,7 +48,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="-10dp"
                 android:fontFamily="@font/inter"
-                android:text="(Envie um Vídeo)"
+                android:text="@string/validation_kit_subtitle"
                 android:textAlignment="center"
                 android:textColor="@color/primary_variant2"
                 android:textSize="20dp" />
@@ -59,11 +59,10 @@
                 android:layout_marginTop="47dp"
                 android:fontFamily="@font/inter"
                 android:lineHeight="16sp"
-                android:text="Envie um Vídeo Mostrando o Conteúdo do Kit para Validação."
+                android:text="@string/validation_kit_instruction"
                 android:textAlignment="center"
                 android:textColor="@color/secondary_variant"
                 android:textSize="12sp" />
-
 
             <LinearLayout
                 android:id="@+id/uploadLinearLayout"
@@ -88,7 +87,7 @@
                 android:layout_width="310dp"
                 android:layout_height="48dp"
                 android:layout_margin="98dp"
-                android:text="ENVIAR"
+                android:text="@string/upload_button_text"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="10dp" />

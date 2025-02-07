@@ -27,7 +27,7 @@
             android:id="@+id/linearLayout"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginTop="270dp"
+            android:layout_marginTop="@dimen/pix_layout_top_margin"
             android:background="@drawable/rounded_top_border"
             android:orientation="vertical">
 
@@ -37,7 +37,7 @@
                 android:layout_gravity="center"
                 android:layout_marginTop="@dimen/margin_standard"
                 android:fontFamily="@font/inter"
-                android:text="Pagamento Pix"
+                android:text="@string/pix_payment"
                 android:textColor="@color/primary_variant2"
                 android:textSize="@dimen/text_size_large" />
 
@@ -45,18 +45,18 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_marginTop="8dp"
+                android:layout_marginTop="@dimen/small_margin"
                 android:orientation="horizontal">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:layout_marginEnd="5dp"
+                    android:layout_marginEnd="@dimen/tiny_margin"
                     android:fontFamily="@font/inter"
-                    android:text="Pedido"
+                    android:text="@string/order_label"
                     android:textColor="@color/primary_variant2"
-                    android:textSize="16sp" />
+                    android:textSize="@dimen/standard_text_size" />
 
                 <TextView
                     android:id="@+id/orderNumber"
@@ -65,7 +65,7 @@
                     android:layout_gravity="center"
                     android:fontFamily="@font/inter"
                     android:textColor="@color/primary_variant2"
-                    android:textSize="16sp"
+                    android:textSize="@dimen/standard_text_size"
                     tools:text="#0000" />
 
             </LinearLayout>
@@ -74,18 +74,18 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="@dimen/small_margin"
                 android:orientation="horizontal">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:layout_marginEnd="5dp"
+                    android:layout_marginEnd="@dimen/tiny_margin"
                     android:fontFamily="@font/inter"
-                    android:text="Valor das Compras"
+                    android:text="@string/order_amount"
                     android:textColor="@color/primary_variant2"
-                    android:textSize="16sp" />
+                    android:textSize="@dimen/standard_text_size" />
 
                 <TextView
                     android:id="@+id/orderPayment"
@@ -94,7 +94,7 @@
                     android:layout_gravity="center"
                     android:fontFamily="@font/inter"
                     android:textColor="@color/primary_variant2"
-                    android:textSize="16sp"
+                    android:textSize="@dimen/standard_text_size"
                     tools:text="R$ 3000,00" />
             </LinearLayout>
 
@@ -102,18 +102,18 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_marginTop="5dp"
+                android:layout_marginTop="@dimen/tiny_margin"
                 android:orientation="vertical">
 
                 <TextView
                     android:id="@+id/pixCode"
-                    android:layout_width="214dp"
-                    android:layout_height="214dp"
+                    android:layout_width="@dimen/pix_code_size"
+                    android:layout_height="@dimen/pix_code_size"
                     android:layout_gravity="center"
-                    android:layout_marginTop="12dp"
+                    android:layout_marginTop="@dimen/default_padding"
                     android:gravity="center"
-                    android:textSize="16sp"
-                    tools:text="Código Pix: aguarde..." />
+                    android:textSize="@dimen/standard_text_size"
+                    tools:text="@string/pix_code_placeholder" />
 
             </LinearLayout>
 
@@ -121,21 +121,21 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="7dp"
+                android:layout_marginTop="@dimen/small_margin"
                 android:orientation="horizontal">
 
                 <com.google.android.material.button.MaterialButton
                     style="@style/UniformButton"
                     android:layout_marginStart="15dp"
-                    android:layout_marginEnd="16dp"
+                    android:layout_marginEnd="@dimen/default_padding"
                     android:drawableEnd="@drawable/ic_copy"
                     android:paddingStart="9dp"
-                    android:text="Copiar Código Pix" />
+                    android:text="@string/copy_pix_code" />
 
                 <com.google.android.material.button.MaterialButton
                     style="@style/UniformButton"
-                    android:layout_marginEnd="15dp"
-                    android:text="Ver Recibo" />
+                    android:layout_marginEnd="@dimen/tiny_margin"
+                    android:text="@string/view_receipt" />
 
 
             </LinearLayout>
@@ -144,16 +144,16 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_marginTop="48dp"
+                android:layout_marginTop="25dp"
                 android:orientation="vertical">
 
 
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/btn_continue"
                     style="@style/PrimaryButton"
-                    android:layout_width="310dp"
-                    android:layout_height="48dp"
-                    android:text="CONTINUAR"
+                    android:layout_width="@dimen/continue_button_width"
+                    android:layout_height="@dimen/button_height"
+                    android:text="@string/btn_continue"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"

@@ -13,11 +13,11 @@
     <style name="SecondButton" parent="Widget.MaterialComponents.Button">
         <item name="android:layout_width">147dp</item>
         <item name="android:layout_height">48dp</item>
-        <item name="backgroundTint">@color/white</item>
+        <item name="backgroundTint">@android:color/transparent</item>
         <item name="android:textColor">@color/primary_variant2</item>
         <item name="cornerRadius">31dp</item>
         <item name="android:alpha">1.0</item>
-        <item name="android:strokeColor">@color/primary_variant2</item>
+        <item name="android:strokeColor">@color/secondary_variant</item>
         <item name="android:strokeWidth">2</item>
     </style>
 
