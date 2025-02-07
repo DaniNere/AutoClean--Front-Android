@@ -58,7 +58,7 @@ class KitDetailsFragment : Fragment() {
                 title = "Caixa de Itens",
                 description = listOf("3 borrifadores", "Escovas",
                     "Panos", "Buchas", "Pinceis", "Protetor auricular",
-                    "Pretinho(produto para pneus", "Silicone Spray",
+                    "Pretinho(produto para pneus)", "Silicone Spray",
                     "Cera Spray", "Caixinha com luva e bucha")
             ),
             ItemKitCleaning(
@@ -70,7 +70,6 @@ class KitDetailsFragment : Fragment() {
             )
         )
     }
-
 
 
     override fun onDestroyView() {

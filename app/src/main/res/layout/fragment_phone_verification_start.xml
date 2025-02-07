@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -8,8 +9,11 @@
 
     <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
         <include
             android:id="@+id/include6"
             layout="@layout/fragment_header"
@@ -33,7 +37,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="43dp"
                 android:layout_gravity="center"
                 android:text="@string/insert_phone_number"
                 android:textSize="24sp"
@@ -47,20 +51,22 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:layout_marginHorizontal="32dp"
-                android:layout_marginTop="16dp">
+                android:layout_marginTop="20dp">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/country"
                     android:layout_weight="1"
-                    android:fontFamily="@font/inter" />
+                    android:fontFamily="@font/inter"
+                    android:layout_marginTop="6dp"/>
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/phone"
                     android:layout_weight="3"
+                    android:layout_marginTop="6dp"
                     android:fontFamily="@font/inter" />
             </LinearLayout>
 
@@ -113,12 +119,12 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:layout_marginTop="40dp"
+                android:layout_marginTop="46dp"
                 android:layout_gravity="center_horizontal">
 
-            <com.google.android.material.button.MaterialButton
+                <com.google.android.material.button.MaterialButton
                     android:id="@+id/btn_continue"
-                    android:layout_width="292dp"
+                    android:layout_width="310dp"
                     android:layout_height="48dp"
                     style="@style/PrimaryButton"
                     android:text="@string/btn_continue"/>
@@ -126,5 +132,6 @@
             </LinearLayout>
 
         </LinearLayout>
+
     </FrameLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

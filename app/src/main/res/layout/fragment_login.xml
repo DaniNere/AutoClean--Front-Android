@@ -4,20 +4,21 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.auth.LoginFragment">
+    tools:context=".ui.auth.login.LoginFragment">
 
     <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <include
             android:id="@+id/include6"
             layout="@layout/fragment_header"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:padding="0dp"
-            android:paddingTop="0dp"
-            android:paddingBottom="0dp" />
+            android:layout_height="match_parent"/>
 
         <LinearLayout
             android:id="@+id/linearLayout"
@@ -28,7 +29,6 @@
             android:layout_marginTop="270dp"
             android:paddingBottom="16dp">
 
-
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -36,7 +36,8 @@
                 android:textColor="@color/primary_variant2"
                 android:textSize="32sp"
                 android:fontFamily="@font/inter"
-                android:layout_marginBottom="12dp"
+                android:textStyle="bold"
+                android:layout_marginTop="24dp"
                 android:layout_gravity="center_horizontal"/>
 
 
@@ -44,8 +45,7 @@
                 style="@style/PrimaryEditText"
                 android:layout_width="310dp"
                 android:layout_height="48dp"
-                android:layout_marginTop="4dp"
-                android:layout_marginBottom="5dp"
+                android:layout_marginTop="19dp"
                 android:layout_gravity="center_horizontal"
                 android:hint="@string/hint_email"
                 android:inputType="textEmailAddress"
@@ -58,8 +58,7 @@
                 android:layout_width="310dp"
                 android:layout_height="48dp"
                 android:layout_gravity="center_horizontal"
-                android:layout_marginTop="4dp"
-                android:layout_marginBottom="7dp"
+                android:layout_marginTop="16dp"
                 android:hint="@string/hint_password"
                 android:inputType="textPassword"
                 android:padding="16dp"
@@ -72,25 +71,40 @@
                 android:layout_height="48dp"
                 android:text="@string/button_login"
                 android:layout_gravity="center_horizontal"
-                android:layout_marginTop="10dp"
-                android:layout_marginBottom="10dp" />
+                android:layout_marginTop="16dp"
+                />
 
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
                 android:layout_marginTop="5dp"
-                android:layout_marginBottom="0dp">
+                android:layout_marginBottom="0dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
 
-                <TextView
+                <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/or_continue_with"
-                    android:textColor="@color/primary_variant2"
-                    android:layout_gravity="center_horizontal"/>
-            </LinearLayout>
+                    android:layout_margin="25dp"
+                    android:src="@drawable/line_4" />
 
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="@string/or_continue_with"
+                    android:textColor="@color/secondary_variant"
+                    android:textSize="16sp" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="25dp"
+                    android:src="@drawable/line_4" />
+
+            </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -99,27 +113,30 @@
                 android:layout_marginTop="12dp"
                 android:layout_marginBottom="0dp">
 
-                <com.google.android.material.button.MaterialButton
-                    style="@style/SecondButton"
-                    android:layout_width="0dp"
-                    android:layout_height="58dp"
-                    android:layout_weight="1"
-                    android:layout_marginStart="1dp"
-                    android:text="@string/google_login"
-                    app:backgroundTint="@android:color/transparent"
-                    app:icon="@drawable/google_1"
-                    app:iconSize="24dp"
-                    app:iconTint="@color/secondary_variant2"
-                    app:iconGravity="textStart" />
 
                 <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btn_Google"
                     style="@style/SecondButton"
                     android:layout_width="0dp"
                     android:layout_height="58dp"
                     android:layout_weight="1"
-                    android:layout_marginStart="40dp"
+                    android:layout_margin="18dp"
+                    android:text="@string/google_login"
+                    app:icon="@drawable/icon_google"
+                    app:iconSize="24dp"
+                    app:iconGravity="textStart"
+                    app:iconTint="@null"/>
+
+
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btn_Apple"
+                    style="@style/SecondButton"
+                    android:layout_width="0dp"
+                    android:layout_height="58dp"
+                    android:layout_weight="1"
+                    android:layout_margin="18dp"
                     android:text="@string/apple_login"
-                    app:backgroundTint="@android:color/transparent"
                     app:icon="@drawable/apple1"
                     app:iconSize="24dp"
                     app:iconTint="@color/black"
@@ -132,7 +149,7 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:layout_gravity="center_horizontal"
-                android:layout_marginTop="17dp">
+                android:layout_marginTop="20dp">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -158,7 +175,7 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:layout_gravity="center_horizontal"
-                android:layout_marginTop="10dp">
+                android:layout_marginTop="13dp">
 
                 <TextView
                     android:id="@+id/clickableText2"
@@ -171,14 +188,10 @@
             </LinearLayout>
 
         </LinearLayout>
-        <ProgressBar
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:visibility="invisible"
-            tools:visibility="visible"
-            android:layout_gravity="center"
-            android:indeterminateTint="@color/primary_variant2"/>
+
     </FrameLayout>
+
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.auth.RecoverAccountFragment">
+    tools:context=".ui.auth.forgot.RecoverAccountFragment">
 
     <FrameLayout
         android:layout_width="match_parent"
@@ -33,6 +33,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginBottom="12dp"
+                android:layout_marginTop="24dp"
                 android:fontFamily="@font/inter"
                 android:text="@string/recover_account_title"
                 android:textColor="@color/primary_variant2"
@@ -41,14 +42,15 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
+                android:layout_gravity="start"
+                android:layout_marginTop="15dp"
                 android:layout_marginStart="12dp"
                 android:layout_marginEnd="12dp"
                 android:layout_marginBottom="12dp"
                 android:fontFamily="@font/inter"
                 android:text="@string/recover_account_instructions"
-                android:textAlignment="center"
-                android:textColor="@color/primary_variant2" />
+                android:textAlignment="viewStart"
+                android:textColor="@color/secondary_variant" />
 
 
             <EditText
@@ -56,7 +58,7 @@
                 android:layout_width="310dp"
                 android:layout_height="48dp"
                 android:layout_gravity="center_horizontal"
-                android:layout_marginTop="4dp"
+                android:layout_marginTop="40dp"
                 android:layout_marginBottom="5dp"
                 android:hint="@string/email_hint"
                 android:inputType="textEmailAddress"
@@ -68,7 +70,7 @@
                 android:layout_width="310dp"
                 android:layout_height="48dp"
                 android:layout_gravity="center_horizontal"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="66dp"
                 android:layout_marginBottom="10dp"
                 android:text="@string/send_button" />
 

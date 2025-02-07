@@ -1,19 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- Definições de dimensões -->
+    <!-- Existing Dimensions -->
     <dimen name="default_margin">16dp</dimen>
-    <dimen name="default_padding">8dp</dimen>
+    <dimen name="default_padding">18dp</dimen>
     <dimen name="stroke_width">2dp</dimen>
     <dimen name="tab_indicator_width_large">100dp</dimen>
     <dimen name="tab_indicator_width_small">50dp</dimen>
-    <dimen name="tab_indicator_height">4dp</dimen>
+    <dimen name="tab_indicator_height">12dp</dimen>
 
-
+    <!-- New Dimensions from Layout -->
     <dimen name="text_size_large">32sp</dimen>
     <dimen name="line_height_large">36sp</dimen>
-    <dimen name="margin_standard">16dp</dimen>
-    <dimen name="margin_horizontal">32dp</dimen>
-    <dimen name="margin_vertical">16dp</dimen>
+
+    <!-- New or corrected standard margins and paddings -->
+    <dimen name="margin_standard">17dp</dimen>
     <dimen name="button_height">48dp</dimen>
+    <dimen name="layout_top_margin">270dp</dimen>
+    <dimen name="small_margin">8dp</dimen>
+
+    <!-- New or adjusted Dimensions from Layout -->
+    <dimen name="pix_layout_top_margin">270dp</dimen>
+    <dimen name="tiny_margin">5dp</dimen>
+    <dimen name="pix_code_size">214dp</dimen>
+    <dimen name="continue_button_width">310dp</dimen>
+    <dimen name="standard_text_size">16sp</dimen>
 
 </resources>

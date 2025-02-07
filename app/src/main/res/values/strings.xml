@@ -36,9 +36,9 @@
     <string name="Google">Google</string>
 
     <!-- Recuperação de Conta -->
-    <string name="recover_account_title">Recuperar Conta</string>
-    <string name="recover_account_instructions">Informe seu e-mail de cadastro para receber\num link para a alteração da senha.</string>
-    <string name="send_button">ENVIAR</string>
+    <string name="recover_account_title">Redefinição de Senha!</string>
+    <string name="recover_account_instructions">Informe seu e-mail e enviaremos um\ link para a recuperação de sua \senha.</string>
+    <string name="send_button">ENVIAR LINK</string>
 
     <!-- Verificação de Telefone -->
     <string name="insert_phone_number">Insira seu número de celular</string>
@@ -55,7 +55,7 @@
 
     <!-- Perfil Profissional -->
     <string name="personal_info">Informações Pessoais</string>
-    <string name="fill_info_to_continue">Preencha as informações abaixo para continuar.</string>
+    <string name="fill_info_to_continue">Preencha as informações abaixo para \n continuar.</string>
     <string name="full_name_hint">Nome Completo</string>
     <string name="cpf_cnpj_hint">CPF ou CNPJ</string>
     <string name="birth_date_hint">Data de Nascimento</string>
@@ -97,5 +97,34 @@
     <string name="cvv_hint">123</string>
     <string name="installments">Parcelamento</string>
     <string name="installments_hint">Em 1x de R$ 3000,00</string>
+
+    <!-- Pix Payment -->
+    <string name="pix_payment">Pagamento Pix</string>
+    <string name="order_label">Pedido</string>
+    <string name="order_amount">Valor das Compras</string>
+    <string name="pix_code_placeholder">Código Pix: aguarde...</string>
+    <string name="copy_pix_code">Copiar Código Pix</string>
+    <string name="view_receipt">Ver Recibo</string>
+
+
+    <!-- Validation Kit Screen -->
+    <string name="validation_kit_title">Validação do Kit</string>
+    <string name="validation_kit_subtitle">(Envie um Vídeo)</string>
+    <string name="validation_kit_instruction">Envie um Vídeo Mostrando o Conteúdo do Kit para Validação.</string>
+    <string name="upload_button_text">ENVIAR</string>
+
+    <!-- Payment Options Strings -->
+    <string name="payment_options_title">Formas de pagamento</string>
+    <string name="credit_card_option">Cartão de Crédito</string>
+    <string name="pix_option">Pix</string>
+
+    <!-- Kit Selection Screen Strings -->
+    <string name="choose_option_prompt">Escolha uma das opções abaixo</string>
+    <string name="already_have_kit">Já tenho o Kit</string>
+    <string name="send_video_instructions">Você vai precisar enviar um vídeo do kit da Auto clean.</string>
+    <string name="purchase_kit">Comprar o Kit</string>
+    <string name="kit_price">R$ 3000,00</string>
+
+    <string name="default_web_client_id">YOUR_CLIENT_ID_HERE</string>
 
 </resources>

@@ -1,4 +1,4 @@
-package com.example.autoclean.ui.auth
+package com.example.autoclean.ui.auth.register
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -7,7 +7,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import com.example.autoclean.R
-import com.example.autoclean.databinding.FragmentLoginBinding
 import com.example.autoclean.databinding.FragmentRegisterBinding
 
 
