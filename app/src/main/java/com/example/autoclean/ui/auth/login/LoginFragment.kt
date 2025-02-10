@@ -49,12 +49,8 @@ class LoginFragment : Fragment() {
 
         googleSignInClient = GoogleSignIn.getClient(requireContext(), gso)
 
-        // Verifique se é o primeiro login para navegar conforme necessário
-        if (isFirstLogin()) {
-            navigateToProfile()
-        } else {
-            // Se não for o primeiro login, não precisa navegar até home aqui, apenas baseie essa decisão na tela respectiva.
-        }
+        // Desconectar para garantir a limpeza de sessões anteriores
+        signOut()
 
         initListeners()
     }
@@ -115,6 +111,14 @@ class LoginFragment : Fragment() {
             }
     }
 
+    private fun signOut() {
+        auth.signOut()
+        googleSignInClient.signOut().addOnCompleteListener {
+            Toast.makeText(requireContext(), "Desconectado do Google", Toast.LENGTH_SHORT).show()
+        }
+        resetPreferences()
+    }
+
     private fun isFirstLogin(): Boolean {
         val prefs = requireContext().getSharedPreferences("AppPrefs", Context.MODE_PRIVATE)
         return prefs.getBoolean("isFirstLogin", true)
@@ -128,12 +132,21 @@ class LoginFragment : Fragment() {
         }
     }
 
+    private fun resetPreferences() {
+        val prefs = requireContext().getSharedPreferences("AppPrefs", Context.MODE_PRIVATE)
+        with(prefs.edit()) {
+            clear()
+            apply()
+        }
+        Toast.makeText(requireContext(), "Preferências Resetadas", Toast.LENGTH_SHORT).show()
+    }
+
     private fun navigateToProfile() {
         findNavController().navigate(R.id.action_loginFragment_to_profileFragment)
     }
 
     private fun navigateToHome() {
-        TODO()
+      TODO()
         //findNavController().navigate(R.id.action_loginFragment_to_homeFragment)
     }
 

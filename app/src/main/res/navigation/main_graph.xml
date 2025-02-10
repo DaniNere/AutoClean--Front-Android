@@ -55,6 +55,9 @@
         android:label="RegisterFragment"
         tools:layout="@layout/fragment_register"
         >
+        <argument
+            android:name="userRole"
+            app:argType="string" />
         <action
             android:id="@+id/action_registerFragment_to_phoneVerificationStartFragment"
             app:destination="@id/phoneVerificationStartFragment" />

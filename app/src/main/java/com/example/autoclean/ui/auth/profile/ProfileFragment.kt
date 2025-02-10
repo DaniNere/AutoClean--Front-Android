@@ -29,12 +29,17 @@ class ProfileFragment : Fragment() {
     }
 
     private fun initListeners() {
-
-        val navigateToRegister: (View) -> Unit = {
-            findNavController().navigate(R.id.action_profileFragment_to_registerFragment)
+        binding.btnClient.setOnClickListener {
+            navigateToRegister("user")
         }
-        binding.btnClient.setOnClickListener(navigateToRegister)
-        binding.btnProfissional.setOnClickListener(navigateToRegister)
+        binding.btnProfissional.setOnClickListener {
+            navigateToRegister("pro")
+        }
+    }
+
+    private fun navigateToRegister(role: String) {
+        val action = ProfileFragmentDirections.actionProfileFragmentToRegisterFragment(role)
+        findNavController().navigate(action)
     }
 
     override fun onDestroyView() {
