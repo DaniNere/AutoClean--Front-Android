@@ -57,6 +57,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/country"
+                    android:layout_marginEnd="21dp"
                     android:layout_weight="1"
                     android:fontFamily="@font/inter"
                     android:layout_marginTop="6dp"/>
@@ -64,10 +65,11 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/phone"
-                    android:layout_weight="3"
                     android:layout_marginTop="6dp"
-                    android:fontFamily="@font/inter" />
+                    android:layout_weight="3"
+                    android:fontFamily="@font/inter"
+                    android:layout_marginStart="8dp"
+                    android:text="@string/phone" />
             </LinearLayout>
 
 
@@ -79,14 +81,18 @@
                 android:layout_marginHorizontal="32dp"
                 android:layout_marginTop="8dp">
 
-                <Spinner
-                    android:id="@+id/spinner_country_code"
-                    style="@style/PrimaryEditText"
-                    android:layout_width="0dp"
-                    android:layout_height="42dp"
-                    android:layout_weight="1"
-                    android:layout_marginEnd="8dp"
-                    android:padding="8dp" />
+                <com.hbb20.CountryCodePicker
+                    android:id="@+id/ccp"
+                    android:layout_marginEnd="21dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/custom_border"
+                    app:ccp_textSize="16sp"
+                    app:ccp_showFullName="false"
+                    app:ccp_showPhoneCode="false"
+                    app:ccp_showNameCode="false"
+                    app:ccp_countryPreference="BR,US"
+                    app:ccp_defaultNameCode="BR" />
 
                 <EditText
                     android:id="@+id/et_phone_number"
