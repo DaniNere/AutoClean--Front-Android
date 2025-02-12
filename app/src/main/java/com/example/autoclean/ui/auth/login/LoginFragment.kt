@@ -3,6 +3,7 @@ package com.example.autoclean.ui.auth.login
 import android.app.Activity.RESULT_OK
 import android.content.Context
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -43,14 +44,12 @@ class LoginFragment : Fragment() {
         auth = FirebaseAuth.getInstance()
 
         val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-            .requestIdToken("43935819173-8hcnfn26ofr4coeableo9iu2bqoa3tpn.apps.googleusercontent.com")
+            .requestIdToken(getString(R.string.default_web_client_id))
             .requestEmail()
             .build()
 
         googleSignInClient = GoogleSignIn.getClient(requireContext(), gso)
 
-        // Desconectar para garantir a limpeza de sessões anteriores
-        signOut()
 
         initListeners()
     }
@@ -65,6 +64,7 @@ class LoginFragment : Fragment() {
         }
 
         binding.btnGoogle.setOnClickListener {
+            Log.d("GoogleLogin", "Botão de login do Google clicado.")
             signIn()
         }
     }
@@ -77,20 +77,34 @@ class LoginFragment : Fragment() {
     private var openActivity = registerForActivityResult(
         ActivityResultContracts.StartActivityForResult()
     ) { result: ActivityResult ->
+        val resultCode = result.resultCode
+        Log.d("GoogleLogin", "Resultado da Intent de login do Google: $resultCode")
+
         if (result.resultCode == RESULT_OK) {
             val intent = result.data
             val task = GoogleSignIn.getSignedInAccountFromIntent(intent)
             handleSignInResult(task)
+            Log.d("GoogleLogin", "Activity Result processada.")
+        } else {
+            // Log adicional em caso de resultado não ser OK
+            Log.e("GoogleLogin", "Falha ao receber 'RESULT_OK'. Código result: $resultCode")
         }
     }
 
     private fun handleSignInResult(task: Task<GoogleSignInAccount>) {
         try {
             val account = task.getResult(ApiException::class.java)
-            account?.idToken?.let { idToken ->
+            val idToken = account?.idToken
+
+            if (idToken != null) {
+                Log.d("GoogleLogin", "Token ID obtido: $idToken")
                 loginWithGoogle(idToken)
+            } else {
+                Log.d("GoogleLogin", "Token ID não foi retornado.")
+                Toast.makeText(requireContext(), "Token de autenticação não obtido.", Toast.LENGTH_SHORT).show()
             }
         } catch (e: ApiException) {
+            Log.e("GoogleLogin", "Falha no login: ${e.message}")
             Toast.makeText(requireContext(), "Falha no login: ${e.message}", Toast.LENGTH_SHORT).show()
         }
     }
@@ -100,24 +114,22 @@ class LoginFragment : Fragment() {
         auth.signInWithCredential(credential)
             .addOnCompleteListener(requireActivity()) { task ->
                 if (task.isSuccessful) {
-                    setFirstLogin(false) // Define que o login inicial ocorreu
-                    Toast.makeText(requireContext(), "Autenticação Efetuada com o Google",
-                        Toast.LENGTH_SHORT).show()
-                    navigateToHome()
+                    Log.d("GoogleLogin", "Autenticação com Google efetuada com sucesso.")
+                    val user = auth.currentUser
+                    Toast.makeText(requireContext(), "Autenticação Efetuada com o Google", Toast.LENGTH_SHORT).show()
+
+                    if (isFirstLogin()) {
+                        setFirstLogin(false)  // Marca que o primeiro login foi realizado
+                        navigateToProfile(true)  // Indica que o Google login foi efetuado
+                    } else {
+                        navigateToHome()
+                    }
                 } else {
-                    Toast.makeText(requireContext(), "Erro de Autenticação com o Google",
-                        Toast.LENGTH_SHORT).show()
+                    Toast.makeText(requireContext(), "Erro de Autenticação com o Google", Toast.LENGTH_SHORT).show()
                 }
             }
     }
 
-    private fun signOut() {
-        auth.signOut()
-        googleSignInClient.signOut().addOnCompleteListener {
-            Toast.makeText(requireContext(), "Desconectado do Google", Toast.LENGTH_SHORT).show()
-        }
-        resetPreferences()
-    }
 
     private fun isFirstLogin(): Boolean {
         val prefs = requireContext().getSharedPreferences("AppPrefs", Context.MODE_PRIVATE)
@@ -132,21 +144,16 @@ class LoginFragment : Fragment() {
         }
     }
 
-    private fun resetPreferences() {
-        val prefs = requireContext().getSharedPreferences("AppPrefs", Context.MODE_PRIVATE)
-        with(prefs.edit()) {
-            clear()
-            apply()
-        }
-        Toast.makeText(requireContext(), "Preferências Resetadas", Toast.LENGTH_SHORT).show()
-    }
 
-    private fun navigateToProfile() {
-        findNavController().navigate(R.id.action_loginFragment_to_profileFragment)
+    private fun navigateToProfile(skipRegistration: Boolean) {
+        Log.d("GoogleLogin", "Navegando para Profile. Skip Registration: $skipRegistration")
+        val action = LoginFragmentDirections
+            .actionLoginFragmentToProfileFragment(skipRegistration)
+        findNavController().navigate(action)
     }
 
     private fun navigateToHome() {
-      TODO()
+        TODO()
         //findNavController().navigate(R.id.action_loginFragment_to_homeFragment)
     }
 

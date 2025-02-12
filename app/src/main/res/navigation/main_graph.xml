@@ -31,9 +31,16 @@
         android:name="com.example.autoclean.ui.auth.profile.ProfileFragment"
         android:label="fragment_profile"
         tools:layout="@layout/fragment_profile" >
+        <argument
+            android:name="skipRegistration"
+            app:argType="boolean"
+            android:defaultValue="false"/>
         <action
             android:id="@+id/action_profileFragment_to_registerFragment"
             app:destination="@id/registerFragment" />
+        <action
+            android:id="@+id/action_profileFragment_to_phoneVerificationStartFragment"
+            app:destination="@id/phoneVerificationStartFragment" />
     </fragment>
     <fragment
         android:id="@+id/recoverAccountFragment"
@@ -45,6 +52,10 @@
         android:name="com.example.autoclean.ui.auth.verification.PhoneVerificationStartFragment"
         android:label="fragment_phone_verification_start"
         tools:layout="@layout/fragment_phone_verification_start" >
+        <argument
+            android:name="userRole"
+            app:argType="string" />
+
         <action
             android:id="@+id/action_phoneVerificationStartFragment_to_codeVerificationFragment"
             app:destination="@id/codeVerificationFragment" />
@@ -58,6 +69,10 @@
         <argument
             android:name="userRole"
             app:argType="string" />
+        <argument
+            android:name="skipRegistration"
+            app:argType="boolean"
+            android:defaultValue="false" />
         <action
             android:id="@+id/action_registerFragment_to_phoneVerificationStartFragment"
             app:destination="@id/phoneVerificationStartFragment" />
@@ -70,6 +85,9 @@
         android:name="com.example.autoclean.ui.auth.verification.CodeVerificationFragment"
         android:label="CodeVerificationFragment"
         tools:layout="@layout/fragment_code_verification">
+        <argument
+            android:name="verificationId"
+            app:argType="string" />
         <action
             android:id="@+id/action_codeVerificationFragment_to_profileProfissionalFragment"
             app:destination="@id/profileProfissionalFragment" />
@@ -132,4 +150,9 @@
         android:name="com.example.autoclean.ui.payment.PixPaymentFragment"
         android:label="fragment_pix_payment"
         tools:layout="@layout/fragment_pix_payment" />
+    <fragment
+        android:id="@+id/userHomeFragment"
+        android:name="com.example.autoclean.ui.home.UserHomeFragment"
+        android:label="fragment_user_home"
+        tools:layout="@layout/fragment_user_home" />
 </navigation>

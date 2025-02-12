@@ -25,7 +25,20 @@ class ProfileFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        initListeners()
+        val args = ProfileFragmentArgs.fromBundle(requireArguments())
+        val skipRegistration = args.skipRegistration
+
+        if (skipRegistration) {
+
+            binding.btnClient.setOnClickListener {
+                navigateToPhoneVerification("user")
+            }
+            binding.btnProfissional.setOnClickListener {
+                navigateToPhoneVerification("pro")
+            }
+        } else {
+            initListeners()
+        }
     }
 
     private fun initListeners() {
@@ -35,6 +48,11 @@ class ProfileFragment : Fragment() {
         binding.btnProfissional.setOnClickListener {
             navigateToRegister("pro")
         }
+    }
+
+    private fun navigateToPhoneVerification(role: String) {
+        val action = ProfileFragmentDirections.actionProfileFragmentToPhoneVerificationStartFragment(role)
+        findNavController().navigate(action) // Usa a direção segura para o fluxo
     }
 
     private fun navigateToRegister(role: String) {
