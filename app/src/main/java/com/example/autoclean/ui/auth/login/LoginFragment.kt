@@ -42,16 +42,23 @@ class LoginFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         auth = FirebaseAuth.getInstance()
+        setupGoogleSignIn()
 
+        resetFirstLoginFlag()
+
+        logSharedPreferences()
+
+
+    initListeners()
+}
+
+    private fun setupGoogleSignIn() {
         val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
             .requestIdToken(getString(R.string.default_web_client_id))
             .requestEmail()
             .build()
 
         googleSignInClient = GoogleSignIn.getClient(requireContext(), gso)
-
-
-        initListeners()
     }
 
     private fun initListeners() {
@@ -86,7 +93,6 @@ class LoginFragment : Fragment() {
             handleSignInResult(task)
             Log.d("GoogleLogin", "Activity Result processada.")
         } else {
-            // Log adicional em caso de resultado não ser OK
             Log.e("GoogleLogin", "Falha ao receber 'RESULT_OK'. Código result: $resultCode")
         }
     }
@@ -115,25 +121,25 @@ class LoginFragment : Fragment() {
             .addOnCompleteListener(requireActivity()) { task ->
                 if (task.isSuccessful) {
                     Log.d("GoogleLogin", "Autenticação com Google efetuada com sucesso.")
-                    val user = auth.currentUser
                     Toast.makeText(requireContext(), "Autenticação Efetuada com o Google", Toast.LENGTH_SHORT).show()
 
                     if (isFirstLogin()) {
-                        setFirstLogin(false)  // Marca que o primeiro login foi realizado
-                        navigateToProfile(true)  // Indica que o Google login foi efetuado
+                        navigateToProfile(true)
                     } else {
                         navigateToHome()
                     }
                 } else {
+                    Log.e("GoogleLogin", "Erro de Autenticação com o Google")
                     Toast.makeText(requireContext(), "Erro de Autenticação com o Google", Toast.LENGTH_SHORT).show()
                 }
             }
     }
 
-
     private fun isFirstLogin(): Boolean {
         val prefs = requireContext().getSharedPreferences("AppPrefs", Context.MODE_PRIVATE)
-        return prefs.getBoolean("isFirstLogin", true)
+        val isFirst = prefs.getBoolean("isFirstLogin", true)
+        Log.d("GoogleLogin", "Verificando primeira execução: $isFirst")
+        return isFirst
     }
 
     private fun setFirstLogin(isFirst: Boolean) {
@@ -144,7 +150,6 @@ class LoginFragment : Fragment() {
         }
     }
 
-
     private fun navigateToProfile(skipRegistration: Boolean) {
         Log.d("GoogleLogin", "Navegando para Profile. Skip Registration: $skipRegistration")
         val action = LoginFragmentDirections
@@ -152,9 +157,26 @@ class LoginFragment : Fragment() {
         findNavController().navigate(action)
     }
 
+    private fun logSharedPreferences() {
+        val prefs = requireContext().getSharedPreferences("AppPrefs", Context.MODE_PRIVATE)
+        val allEntries = prefs.all
+        for ((key, value) in allEntries) {
+            Log.d("GoogleLogin", "Chave: $key, Valor: $value")
+        }
+    }
+
+    private fun resetFirstLoginFlag() {
+        val prefs = requireContext().getSharedPreferences("AppPrefs", Context.MODE_PRIVATE)
+        with(prefs.edit()) {
+            clear()
+            Log.d("GoogleLogin", "SharedPreferences resetado.")
+            apply()
+        }
+    }
+
     private fun navigateToHome() {
-        TODO()
-        //findNavController().navigate(R.id.action_loginFragment_to_homeFragment)
+        // Coloque o código necessário para navegar para a tela principal ou inicial
+        findNavController().navigate(R.id.action_loginFragment_to_userHomeFragment)
     }
 
     override fun onDestroyView() {

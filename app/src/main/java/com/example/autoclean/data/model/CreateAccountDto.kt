@@ -1,4 +1,4 @@
-package com.example.autoclean.data.model
+package com.example.autoclean.data.model.model
 
 data class CreateAccountDto (
     val name: String,

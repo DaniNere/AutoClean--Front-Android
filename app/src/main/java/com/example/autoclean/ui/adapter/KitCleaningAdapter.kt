@@ -8,7 +8,7 @@ import android.widget.TextView
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.example.autoclean.R
-import com.example.autoclean.data.model.ItemKitCleaning
+import com.example.autoclean.data.model.model.ItemKitCleaning
 import com.example.autoclean.databinding.ItemKitCleaningBinding
 
 class KitCleaningAdapter(
