@@ -65,7 +65,6 @@ dependencies {
     ksp("com.google.dagger:hilt-android-compiler:2.51.1")
 
 // Retrofit
-
     implementation ("com.squareup.retrofit2:retrofit:2.9.0")
     implementation ("com.squareup.retrofit2:converter-gson:2.9.0")
     implementation ("com.squareup.okhttp3:okhttp:4.9.0")
@@ -73,6 +72,9 @@ dependencies {
 
     // Country Picker
     implementation ("com.hbb20:ccp:2.6.0")
+
+    //PhoneNumber
+    implementation ("com.googlecode.libphonenumber:libphonenumber:8.13.2")
 
 
     testImplementation(libs.junit)

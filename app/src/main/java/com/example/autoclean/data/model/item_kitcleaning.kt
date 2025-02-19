@@ -1,4 +1,4 @@
-package com.example.autoclean.data.model
+package com.example.autoclean.data.model.model
 
 import android.os.Parcelable
 import kotlinx.parcelize.Parcelize

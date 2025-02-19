@@ -25,6 +25,9 @@
         <action
             android:id="@+id/action_loginFragment_to_recoverAccountFragment"
             app:destination="@id/recoverAccountFragment" />
+        <action
+            android:id="@+id/action_loginFragment_to_userHomeFragment"
+            app:destination="@id/userHomeFragment" />
     </fragment>
     <fragment
         android:id="@+id/profileFragment"
@@ -86,7 +89,7 @@
         android:label="CodeVerificationFragment"
         tools:layout="@layout/fragment_code_verification">
         <argument
-            android:name="verificationId"
+            android:name="phoneNumber"
             app:argType="string" />
         <action
             android:id="@+id/action_codeVerificationFragment_to_profileProfissionalFragment"

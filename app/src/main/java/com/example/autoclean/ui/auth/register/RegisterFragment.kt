@@ -11,7 +11,7 @@ import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.example.autoclean.R
 import com.example.autoclean.data.api.ApiClient
-import com.example.autoclean.data.model.CreateAccountDto
+import com.example.autoclean.data.model.model.CreateAccountDto
 import com.example.autoclean.databinding.FragmentRegisterBinding
 import retrofit2.Call
 import retrofit2.Callback

@@ -83,16 +83,16 @@
 
                 <com.hbb20.CountryCodePicker
                     android:id="@+id/ccp"
-                    android:layout_marginEnd="21dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginEnd="21dp"
                     android:background="@drawable/custom_border"
-                    app:ccp_textSize="16sp"
-                    app:ccp_showFullName="false"
-                    app:ccp_showPhoneCode="false"
-                    app:ccp_showNameCode="false"
                     app:ccp_countryPreference="BR,US"
-                    app:ccp_defaultNameCode="BR" />
+                    app:ccp_defaultNameCode="BR"
+                    app:ccp_showFullName="false"
+                    app:ccp_showNameCode="false"
+                    app:ccp_showPhoneCode="false"
+                    app:ccp_textSize="16sp" />
 
                 <EditText
                     android:id="@+id/et_phone_number"
