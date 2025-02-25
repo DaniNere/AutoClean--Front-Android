@@ -22,7 +22,7 @@ class RegisterFragment : Fragment() {
     private var _binding: FragmentRegisterBinding? = null
     private val binding get() = _binding!!
 
-    // Use navArgs para obter argumentos passados
+
     private val args: RegisterFragmentArgs by navArgs()
 
     override fun onCreateView(
@@ -41,7 +41,12 @@ class RegisterFragment : Fragment() {
 
     private fun initListeners() {
         binding.btnCreateAccount.setOnClickListener {
-            registerUser()
+            val fullName = binding.editTextName.text.toString()
+            val email = binding.editTextEmail.text.toString()
+            val password = binding.editTextPassword.text.toString()
+            val role = args.role
+
+            navigateToPhoneVerification(fullName, email, password, role)
         }
 
         binding.clickableText.setOnClickListener {
@@ -49,49 +54,18 @@ class RegisterFragment : Fragment() {
         }
     }
 
-    private fun registerUser() {
-        val fullName = binding.editTextName.text.toString()
-        val email = binding.editTextEmail.text.toString()
-        val password = binding.editTextPassword.text.toString()
 
-
-        val role = args.userRole
-
-        if (fullName.isBlank() || email.isBlank() || password.isBlank()) {
-            Toast.makeText(context, "Por favor, preencha todos os campos!", Toast.LENGTH_SHORT).show()
-            return
-        }
-
-        val apiService = ApiClient.apiService
-        val registrationData = CreateAccountDto(
-            name = fullName,
+    private fun navigateToPhoneVerification(fullName: String, email: String, password: String, role: String) {
+        val action = RegisterFragmentDirections.actionRegisterFragmentToPhoneVerificationStartFragment(
+            displayName = fullName,
             email = email,
             password = password,
-            role = role
+            role = role,
+            uid= "",
+            photoUrl = ""
+
         )
-
-        println(registrationData)
-
-
-        apiService.register(registrationData).enqueue(object : Callback<Void> {
-            override fun onResponse(call: Call<Void>, response: Response<Void>) {
-                if (response.isSuccessful) {
-                    Toast.makeText(context, "Registro efetuado com sucesso!", Toast.LENGTH_SHORT).show()
-                    navigateToPhoneVerification()
-                } else {
-                    Toast.makeText(context, "Falha no registro: ${response.code()}", Toast.LENGTH_SHORT).show()
-                }
-            }
-
-            override fun onFailure(call: Call<Void>, t: Throwable) {
-                Log.e("RegisterFragment", "Erro na rede durante o registro", t)
-                Toast.makeText(context, "Erro no registro: ${t.message}", Toast.LENGTH_SHORT).show()
-            }
-        })
-    }
-
-    private fun navigateToPhoneVerification() {
-        findNavController().navigate(R.id.action_registerFragment_to_phoneVerificationStartFragment)
+        findNavController().navigate(action)
     }
 
     override fun onDestroyView() {

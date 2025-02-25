@@ -12,18 +12,26 @@ import com.example.autoclean.R
 import com.example.autoclean.data.api.ApiClient
 import com.example.autoclean.data.model.request.VerifyRequestDto
 import com.example.autoclean.databinding.FragmentPhoneVerificationStartBinding
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
+import com.google.i18n.phonenumbers.PhoneNumberUtil
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
-import com.google.i18n.phonenumbers.PhoneNumberUtil
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 class PhoneVerificationStartFragment : Fragment() {
+
     private var _binding: FragmentPhoneVerificationStartBinding? = null
     private val binding get() = _binding!!
     private val TAG = "PhoneVerification"
+
+    private lateinit var role: String
+    private lateinit var displayName: String
+    private lateinit var email: String
+    private lateinit var uid: String
+    private lateinit var photoUrl: String
+    private lateinit var password: String
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
@@ -34,10 +42,20 @@ class PhoneVerificationStartFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+
+        val args = PhoneVerificationStartFragmentArgs.fromBundle(requireArguments())
+        role = args.role
+        displayName = args.displayName
+        email = args.email
+        uid = args.uid
+        photoUrl = args.photoUrl
+        password = args.password
+
         initListeners()
     }
 
-    private fun initListeners() {
+    /*private fun initListeners() {
         binding.btnContinue.setOnClickListener {
             val countryCode = binding.ccp.selectedCountryCodeWithPlus ?: "+"
             val phoneNumber = binding.etPhoneNumber.text.toString()
@@ -53,6 +71,27 @@ class PhoneVerificationStartFragment : Fragment() {
             } else {
                 showToast("Por favor, insira um número de telefone.")
             }
+        }
+    }*/
+
+    private fun initListeners() {
+
+        val countryCode = "+XX"
+        val phoneNumber = "900000000"
+        val fullPhoneNumber = "$countryCode$phoneNumber"
+
+        binding.btnContinue.setOnClickListener {
+            val action = PhoneVerificationStartFragmentDirections
+                .actionPhoneVerificationStartFragmentToCodeVerificationFragment(
+                    fullPhoneNumber,
+                    role = role,
+                    displayName = displayName,
+                    email = email,
+                    uid = uid,
+                    photoUrl = photoUrl,
+                    password = password
+                )
+            findNavController().navigate(action)
         }
     }
 
@@ -80,7 +119,13 @@ class PhoneVerificationStartFragment : Fragment() {
 
                         val action = PhoneVerificationStartFragmentDirections
                             .actionPhoneVerificationStartFragmentToCodeVerificationFragment(
-                                fullPhoneNumber
+                                fullPhoneNumber,
+                                role = role,
+                                displayName = displayName,
+                                email = email,
+                                uid = uid,
+                                photoUrl = photoUrl,
+                                password = password
                             )
                         findNavController().navigate(action)
                     } else {
