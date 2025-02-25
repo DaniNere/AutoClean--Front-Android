@@ -18,7 +18,7 @@ class ProfileFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-       _binding = FragmentProfileBinding.inflate(inflater, container, false)
+        _binding = FragmentProfileBinding.inflate(inflater, container, false)
         return binding.root
     }
 
@@ -26,15 +26,19 @@ class ProfileFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         val args = ProfileFragmentArgs.fromBundle(requireArguments())
+        val displayName = args.displayName
+        val email = args.email
+        val uid = args.uid
+        val photoUrl = args.photoUrl
         val skipRegistration = args.skipRegistration
 
-        if (skipRegistration) {
 
+        if (skipRegistration) {
             binding.btnClient.setOnClickListener {
-                navigateToPhoneVerification("user")
+                navigateToPhoneVerification("user", displayName, email, uid, photoUrl)
             }
             binding.btnProfissional.setOnClickListener {
-                navigateToPhoneVerification("pro")
+                navigateToPhoneVerification("pro", displayName, email, uid, photoUrl)
             }
         } else {
             initListeners()
@@ -50,9 +54,24 @@ class ProfileFragment : Fragment() {
         }
     }
 
-    private fun navigateToPhoneVerification(role: String) {
-        val action = ProfileFragmentDirections.actionProfileFragmentToPhoneVerificationStartFragment(role)
-        findNavController().navigate(action) // Usa a direção segura para o fluxo
+    private fun navigateToPhoneVerification(
+        role: String,
+        displayName: String,
+        email: String,
+        uid: String,
+        photoUrl: String?
+    ) {
+        val safePhotoUrl = photoUrl ?: " "
+        val action =
+            ProfileFragmentDirections.actionProfileFragmentToPhoneVerificationStartFragment(
+                role = role,
+                displayName = displayName,
+                email = email,
+                uid = uid,
+                password = "",
+                photoUrl = safePhotoUrl
+            )
+        findNavController().navigate(action)
     }
 
     private fun navigateToRegister(role: String) {

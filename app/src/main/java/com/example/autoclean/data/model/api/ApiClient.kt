@@ -28,6 +28,7 @@ object ApiClient {
     private val localRetrofit: Retrofit by lazy {
         Retrofit.Builder()
             .baseUrl(LOCAL_BASE_URL)
+            .client(okHttpClient)
             .addConverterFactory(GsonConverterFactory.create())
             .build()
     }

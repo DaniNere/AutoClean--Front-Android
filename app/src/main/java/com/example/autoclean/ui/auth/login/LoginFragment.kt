@@ -49,8 +49,8 @@ class LoginFragment : Fragment() {
         logSharedPreferences()
 
 
-    initListeners()
-}
+        initListeners()
+    }
 
     private fun setupGoogleSignIn() {
         val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
@@ -63,8 +63,16 @@ class LoginFragment : Fragment() {
 
     private fun initListeners() {
         binding.clickableText.setOnClickListener {
-            findNavController().navigate(R.id.action_loginFragment_to_profileFragment)
+            val action = LoginFragmentDirections.actionLoginFragmentToProfileFragment(
+                skipRegistration = false,
+                displayName = "",
+                email = "",
+                uid = "",
+                photoUrl = ""
+            )
+            findNavController().navigate(action)
         }
+
 
         binding.clickableText2.setOnClickListener {
             findNavController().navigate(R.id.action_loginFragment_to_recoverAccountFragment)
@@ -105,13 +113,24 @@ class LoginFragment : Fragment() {
             if (idToken != null) {
                 Log.d("GoogleLogin", "Token ID obtido: $idToken")
                 loginWithGoogle(idToken)
+
+                val displayName = account.displayName
+                val email = account.email
+                val uid = account.id
+                val photoUrl = account.photoUrl?.toString()
+
             } else {
                 Log.d("GoogleLogin", "Token ID não foi retornado.")
-                Toast.makeText(requireContext(), "Token de autenticação não obtido.", Toast.LENGTH_SHORT).show()
+                Toast.makeText(
+                    requireContext(),
+                    "Token de autenticação não obtido.",
+                    Toast.LENGTH_SHORT
+                ).show()
             }
         } catch (e: ApiException) {
             Log.e("GoogleLogin", "Falha no login: ${e.message}")
-            Toast.makeText(requireContext(), "Falha no login: ${e.message}", Toast.LENGTH_SHORT).show()
+            Toast.makeText(requireContext(), "Falha no login: ${e.message}", Toast.LENGTH_SHORT)
+                .show()
         }
     }
 
@@ -121,16 +140,30 @@ class LoginFragment : Fragment() {
             .addOnCompleteListener(requireActivity()) { task ->
                 if (task.isSuccessful) {
                     Log.d("GoogleLogin", "Autenticação com Google efetuada com sucesso.")
-                    Toast.makeText(requireContext(), "Autenticação Efetuada com o Google", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(
+                        requireContext(),
+                        "Autenticação Efetuada com o Google",
+                        Toast.LENGTH_SHORT
+                    ).show()
+
+                    val user = auth.currentUser
+                    val displayName = user?.displayName
+                    val email = user?.email
+                    val uid = user?.uid
+                    val photoUrl = user?.photoUrl?.toString()
 
                     if (isFirstLogin()) {
-                        navigateToProfile(true)
+                        navigateToProfile(displayName, email, uid, photoUrl, true)
                     } else {
                         navigateToHome()
                     }
                 } else {
                     Log.e("GoogleLogin", "Erro de Autenticação com o Google")
-                    Toast.makeText(requireContext(), "Erro de Autenticação com o Google", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(
+                        requireContext(),
+                        "Erro de Autenticação com o Google",
+                        Toast.LENGTH_SHORT
+                    ).show()
                 }
             }
     }
@@ -149,11 +182,20 @@ class LoginFragment : Fragment() {
             apply()
         }
     }
-
-    private fun navigateToProfile(skipRegistration: Boolean) {
-        Log.d("GoogleLogin", "Navegando para Profile. Skip Registration: $skipRegistration")
-        val action = LoginFragmentDirections
-            .actionLoginFragmentToProfileFragment(skipRegistration)
+    private fun navigateToProfile(
+        displayName: String?,
+        email: String?,
+        uid: String?,
+        photoUrl: String?,
+        skipRegistration: Boolean
+    ) {
+        val action = LoginFragmentDirections.actionLoginFragmentToProfileFragment(
+            skipRegistration = skipRegistration,
+            displayName = displayName ?: "",
+            email = email ?: "",
+            uid = uid ?: "",
+            photoUrl = photoUrl ?: ""
+        )
         findNavController().navigate(action)
     }
 
