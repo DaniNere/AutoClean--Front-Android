@@ -77,7 +77,7 @@ class PhoneVerificationStartFragment : Fragment() {
     private fun initListeners() {
 
         val countryCode = "+XX"
-        val phoneNumber = "900000000"
+        val phoneNumber = "900000001"
         val fullPhoneNumber = "$countryCode$phoneNumber"
 
         binding.btnContinue.setOnClickListener {

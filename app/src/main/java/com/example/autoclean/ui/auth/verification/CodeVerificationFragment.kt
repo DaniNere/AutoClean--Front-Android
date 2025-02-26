@@ -80,7 +80,7 @@ class CodeVerificationFragment : Fragment() {
                 findNavController().navigate(action)
             } else {
                 Log.d("CodeVerificationFragment", "Role is not 'pro', staying in current fragment")
-
+                saveUserData()
             }
         }
     }
