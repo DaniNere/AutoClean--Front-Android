@@ -6,12 +6,15 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
 import com.example.autoclean.R
 import com.example.autoclean.databinding.FragmentProfessionalVerificationBinding
 
 class ProfessionalVerificationFragment : Fragment() {
     private var _binding: FragmentProfessionalVerificationBinding? = null
     private val binding get() = _binding!!
+
+    private val args: ProfessionalVerificationFragmentArgs by navArgs()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -25,7 +28,7 @@ class ProfessionalVerificationFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         initListeners()
-        updateUserName("Carlos")
+        updateUserName(args.displayName)
     }
 
     private fun initListeners() {
