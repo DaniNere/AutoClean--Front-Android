@@ -179,6 +179,9 @@
         android:name="com.example.autoclean.ui.auth.verification.ProfessionalVerificationFragment"
         android:label="fragment_professional_verification"
         tools:layout="@layout/fragment_professional_verification" >
+        <argument
+            android:name="displayName"
+            app:argType="string" />
         <action
             android:id="@+id/action_professionalVerificationFragment_to_cleaningkitmanagerFragment"
             app:destination="@id/cleaningkitmanagerFragment" />

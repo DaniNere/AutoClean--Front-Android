@@ -275,7 +275,12 @@ class ProfileProfissionalFragment : Fragment() {
                 if (response.isSuccessful) {
                     Log.d(TAG, "User data saved successfully via API!")
                     Toast.makeText(requireContext(), "Informações enviadas com sucesso!", Toast.LENGTH_SHORT).show()
-                    findNavController().navigate(R.id.action_profileProfissionalFragment_to_professionalVerificationFragment)
+
+                    val action = ProfileProfissionalFragmentDirections.actionProfileProfissionalFragmentToProfessionalVerificationFragment(
+                        displayName = registrationData.fullname
+                    )
+                    findNavController().navigate(action)
+
                 } else {
                     val errorBody = response.errorBody()?.string()
                     if (errorBody != null) {
