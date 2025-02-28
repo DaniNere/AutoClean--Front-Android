@@ -58,4 +58,20 @@
         <item name="android:drawablePadding">2dp</item>
     </style>
 
+
+    <style name="CustomBottomSheetShape" parent="ShapeAppearanceOverlay.MaterialComponents.BottomSheet">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">16dp</item>
+    </style>
+
+    <style name="ModalCodeVerification" parent="Widget.AppCompat.EditText">
+        <item name="android:layout_width">310dp</item>
+        <item name="android:layout_height">48dp</item>
+        <item name="android:background">@drawable/bg_modal_option</item>
+        <item name="android:padding">8dp</item>
+        <item name="android:textColor">@color/primary_variant2</item>
+        <item name="android:alpha">1.0</item>
+        <item name="backgroundTint">@color/neutral_medium</item>
+    </style>
+
 </resources>

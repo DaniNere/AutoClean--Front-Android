@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import com.example.autoclean.R
 import com.example.autoclean.data.api.ApiClient
@@ -26,12 +27,8 @@ class PhoneVerificationStartFragment : Fragment() {
     private val binding get() = _binding!!
     private val TAG = "PhoneVerification"
 
-    private lateinit var role: String
-    private lateinit var displayName: String
-    private lateinit var email: String
-    private lateinit var uid: String
-    private lateinit var photoUrl: String
-    private lateinit var password: String
+    // Inicia o ViewModel compartilhado
+    private val verificationViewModel: VerificationViewModel by activityViewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
@@ -43,25 +40,29 @@ class PhoneVerificationStartFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-
         val args = PhoneVerificationStartFragmentArgs.fromBundle(requireArguments())
-        role = args.role
-        displayName = args.displayName
-        email = args.email
-        uid = args.uid
-        photoUrl = args.photoUrl
-        password = args.password
+        verificationViewModel.updateRole(args.role)
+        verificationViewModel.updateDisplayName(args.displayName)
+        verificationViewModel.updateEmail(args.email)
+        verificationViewModel.updateUid(args.uid)
+        verificationViewModel.updatePhotoUrl(args.photoUrl)
+        verificationViewModel.updatePassword(args.password)
+
+        verificationViewModel.phoneNumber.observe(viewLifecycleOwner, { displayName ->
+            Log.d("CodeVerificationFragment", "Vendo se os dados são validados: $displayName")
+        })
 
         initListeners()
     }
 
-    /*private fun initListeners() {
+    /*
+    private fun initListeners (){
         binding.btnContinue.setOnClickListener {
             val countryCode = binding.ccp.selectedCountryCodeWithPlus ?: "+"
-            val phoneNumber = binding.etPhoneNumber.text.toString()
+            val phoneNumber = binding.etPhoneNumber.text.toString
 
             val fullPhoneNumber = "$countryCode$phoneNumber"
-            if (phoneNumber.isNotBlank()) {
+            if (phoneNumber.isNotBlank) {
                 if (isValidPhoneNumber(fullPhoneNumber)) {
                     Log.d(TAG, "Número de telefone completo: $fullPhoneNumber")
                     sendVerificationRequestToBackend(fullPhoneNumber)
@@ -72,24 +73,34 @@ class PhoneVerificationStartFragment : Fragment() {
                 showToast("Por favor, insira um número de telefone.")
             }
         }
-    }*/
+    }
+    */
 
     private fun initListeners() {
 
-        val countryCode = "+XX"
-        val phoneNumber = "900000004"
+        // Para fins de teste, vamos usar um número fixo
+        val countryCode = binding.ccp.selectedCountryCodeWithPlus ?: "+"
+        val phoneNumber = "31988417346"
         val fullPhoneNumber = "$countryCode$phoneNumber"
 
+        /*val countryCode = binding.ccp.selectedCountryCodeWithPlus ?: "+"
+        val phoneNumber = binding.etPhoneNumber.text.toString()
+        val fullPhoneNumber = "$countryCode$phoneNumber"*/
+
+        Log.d("CodeVerificationFragment", "Vendo se os dados são validados: $phoneNumber")
+
         binding.btnContinue.setOnClickListener {
+            verificationViewModel.updatePhoneNumber(fullPhoneNumber)
+
             val action = PhoneVerificationStartFragmentDirections
                 .actionPhoneVerificationStartFragmentToCodeVerificationFragment(
                     fullPhoneNumber,
-                    role = role,
-                    displayName = displayName,
-                    email = email,
-                    uid = uid,
-                    photoUrl = photoUrl,
-                    password = password
+                    role = verificationViewModel.role.value ?: "",
+                    displayName = verificationViewModel.displayName.value ?: "",
+                    email = verificationViewModel.email.value ?: "",
+                    uid = verificationViewModel.uid.value ?: "",
+                    photoUrl = verificationViewModel.photoUrl.value ?: "",
+                    password = verificationViewModel.password.value ?: ""
                 )
             findNavController().navigate(action)
         }
@@ -117,15 +128,17 @@ class PhoneVerificationStartFragment : Fragment() {
                         Log.d(TAG, "Solicitação de verificação enviada com sucesso.")
                         showToast("Código de verificação enviado!")
 
+                        verificationViewModel.updatePhoneNumber(fullPhoneNumber)
+
                         val action = PhoneVerificationStartFragmentDirections
                             .actionPhoneVerificationStartFragmentToCodeVerificationFragment(
                                 fullPhoneNumber,
-                                role = role,
-                                displayName = displayName,
-                                email = email,
-                                uid = uid,
-                                photoUrl = photoUrl,
-                                password = password
+                                role = verificationViewModel.role.value ?: "",
+                                displayName = verificationViewModel.displayName.value ?: "",
+                                email = verificationViewModel.email.value ?: "",
+                                uid = verificationViewModel.uid.value ?: "",
+                                photoUrl = verificationViewModel.photoUrl.value ?: "",
+                                password = verificationViewModel.password.value ?: ""
                             )
                         findNavController().navigate(action)
                     } else {

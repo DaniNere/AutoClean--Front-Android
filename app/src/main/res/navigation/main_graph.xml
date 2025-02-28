@@ -141,6 +141,9 @@
         <action
             android:id="@+id/action_codeVerificationFragment_to_profileProfissionalFragment"
             app:destination="@id/profileProfissionalFragment" />
+        <action
+            android:id="@+id/action_codeVerificationFragment_to_phoneVerificationStartFragment"
+            app:destination="@id/phoneVerificationStartFragment" />
 
     </fragment>
     <fragment
