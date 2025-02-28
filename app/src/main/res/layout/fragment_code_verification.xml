@@ -140,7 +140,7 @@
                     android:textColor="@color/secondary_variant2"
                     android:textStyle="bold"
                     android:clickable="true"
-                    android:focusable="true"/>
+                    android:focusable="true" />
 
             </LinearLayout>
 

@@ -7,13 +7,14 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
+import com.example.autoclean.databinding.FragmentCodeVerificationBinding
 import com.example.autoclean.R
 import com.example.autoclean.data.api.ApiClient
 import com.example.autoclean.data.model.model.CreateAccountDto
 import com.example.autoclean.data.model.request.VerifyCodeTwilio
-import com.example.autoclean.databinding.FragmentCodeVerificationBinding
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -21,22 +22,17 @@ import retrofit2.Response
 class CodeVerificationFragment : Fragment() {
 
     private var _binding: FragmentCodeVerificationBinding? = null
-    private val binding get() = _binding!!
+    private val binding get()= _binding!!
 
     private val args: CodeVerificationFragmentArgs by navArgs()
 
-    private lateinit var phoneNumber: String
-    private lateinit var role: String
-    private lateinit var displayName: String
-    private lateinit var email: String
-    private lateinit var uid: String
-    private lateinit var photoUrl: String
-    private lateinit var password: String
+
+    private val verificationViewModel: VerificationViewModel by activityViewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View {
+    ): View? {
         _binding = FragmentCodeVerificationBinding.inflate(inflater, container, false)
         return binding.root
     }
@@ -46,36 +42,45 @@ class CodeVerificationFragment : Fragment() {
 
         Log.d("CodeVerificationFragment", "onViewCreated: Fragment view created")
 
-        phoneNumber = args.phoneNumber
-        role = args.role
-        displayName = args.displayName
-        email = args.email
-        uid = args.uid
-        photoUrl = args.photoUrl
-        password = args.password
 
-        Log.d("CodeVerificationFragment", "onViewCreated: Args initialized - phoneNumber: $phoneNumber, role: $role, displayName: $displayName, email: $email")
+        verificationViewModel.updatePhoneNumber(args.phoneNumber)
+        verificationViewModel.updateRole(args.role)
+        verificationViewModel.updateDisplayName(args.displayName)
+        verificationViewModel.updateEmail(args.email)
+        verificationViewModel.updateUid(args.uid)
+        verificationViewModel.updatePhotoUrl(args.photoUrl)
+        verificationViewModel.updatePassword(args.password)
+
+
+        verificationViewModel.phoneNumber.observe(viewLifecycleOwner, { displayName ->
+            Log.d("CodeVerificationFragment", "Observando mudança no número de telefone: $displayName")
+        })
+
+        binding.noCode.setOnClickListener {
+            val modalFragment = ModalCodeVerificationFragment ()
+            modalFragment.show(parentFragmentManager, modalFragment.tag)
+        }
 
         initListeners()
     }
 
-    // Este trecho é só pra não gastar os créditos de envio de SMS
     private fun initListeners() {
         binding.btnContinue.setOnClickListener {
             Log.d("CodeVerificationFragment", "Continue button clicked")
 
+            val role = verificationViewModel.role.value
             if (role == "pro") {
                 Log.d("CodeVerificationFragment", "Navigating as professional role")
 
                 val action = CodeVerificationFragmentDirections
                     .actionCodeVerificationFragmentToProfileProfissionalFragment(
-                        phoneNumber = phoneNumber,
-                        role = role,
-                        displayName = displayName,
-                        email = email,
-                        uid = uid,
-                        photoUrl = photoUrl,
-                        password = password
+                        phoneNumber = verificationViewModel.phoneNumber.value!!,
+                        role = verificationViewModel.role.value!!,
+                        displayName = verificationViewModel.displayName.value!!,
+                        email = verificationViewModel.email.value!!,
+                        uid = verificationViewModel.uid.value!!,
+                        photoUrl = verificationViewModel.photoUrl.value!!,
+                        password = verificationViewModel.password.value!!
                     )
                 findNavController().navigate(action)
             } else {
@@ -83,24 +88,6 @@ class CodeVerificationFragment : Fragment() {
                 saveUserData()
             }
         }
-    }
-
-    /*private fun initListeners(phoneNumber: String) {
-        binding.btnContinue.setOnClickListener {
-            val code = getEnteredCode()
-            if (code.length == 4) {
-                verifyCode(phoneNumber, code)
-            } else {
-                showToast("Por favor, insira um código de 4 dígitos.")
-            }
-        }
-    }*/
-
-    private fun getEnteredCode(): String {
-        return binding.codAccess1.text.toString() +
-                binding.codAccess2.text.toString() +
-                binding.codAccess3.text.toString() +
-                binding.codAccess4.text.toString()
     }
 
     private fun verifyCode(phoneNumber: String, code: String) {
@@ -115,7 +102,7 @@ class CodeVerificationFragment : Fragment() {
                     if (response.isSuccessful) {
                         Log.d("CodeVerificationFragment", "Code verified successfully")
                         showToast("Código de verificação validado com sucesso!")
-                        if (role == "user") {
+                        if (verificationViewModel.role.value == "user") {
                             saveUserData()
                         }
                         findNavController().navigate(R.id.action_codeVerificationFragment_to_profileProfissionalFragment)
@@ -134,13 +121,13 @@ class CodeVerificationFragment : Fragment() {
 
     private fun saveUserData() {
         val registrationData = CreateAccountDto(
-            fullname = displayName,
-            email = email,
+            fullname = verificationViewModel.displayName.value ?: "",
+            email = verificationViewModel.email.value ?: "",
             password = "",
-            role = role,
-            uid = uid,
-            phone = phoneNumber,
-            photoUrl = photoUrl
+            role = verificationViewModel.role.value ?: "",
+            uid = verificationViewModel.uid.value ?: "",
+            phone = verificationViewModel.phoneNumber.value ?: "",
+            photoUrl = verificationViewModel.photoUrl.value ?: ""
         )
 
         Log.d("SaveUserData", "Sending user data to save: $registrationData")

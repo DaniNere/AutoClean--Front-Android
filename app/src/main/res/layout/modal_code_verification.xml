@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@drawable/modal_background"
+    android:padding="16dp">
+
+    <!-- Título do modal com botão de fechar -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_gravity="center"
+        android:paddingBottom="16dp">
+
+        <ImageView
+            android:id="@+id/close"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/ic_close"
+            android:contentDescription="Fechar"
+            android:layout_gravity="start"
+            android:paddingEnd="8dp"
+            android:clickable="true" />
+
+        <TextView
+            android:id="@+id/modal_title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Não recebi o código"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:textColor="@color/primary_variant2" />
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginBottom="24dp">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/line_5"
+            android:layout_gravity="center"/>
+
+    </LinearLayout>
+
+
+    <!-- Opção 1: Reenviar código -->
+    <LinearLayout
+        android:id="@+id/resend_code_option"
+        style="@style/ModalCodeVerification"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:background="@color/neutral_medium"
+        android:padding="5dp"
+        android:layout_margin="11dp">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Reenviar o código"
+            android:textSize="14sp"
+            android:padding="5dp"
+            android:textStyle="bold"
+            android:textColor="@color/primary_variant2" />
+
+        <CheckBox
+            android:id="@+id/resend_code_checkbox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:buttonTint="@color/secondary_variant" />
+    </LinearLayout>
+
+    <!-- Opção 2: Alterar número -->
+    <LinearLayout
+        style="@style/ModalCodeVerification"
+        android:id="@+id/change_number_option"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:padding="5dp"
+        android:layout_margin="11dp">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Alterar número"
+            android:textSize="14sp"
+            android:padding="5dp"
+            android:textStyle="bold"
+            android:textColor="@color/primary_variant2" />
+
+        <CheckBox
+            android:id="@+id/change_number_checkbox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:buttonTint="@color/secondary_variant" />
+    </LinearLayout>
+
+    <!-- Botão Continuar -->
+    <Button
+        android:id="@+id/continue_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="CONTINUAR"
+        android:textAllCaps="false"
+        android:layout_marginTop="16dp"
+        android:backgroundTint="@color/primary"
+        android:textColor="@android:color/white"
+        android:paddingVertical="12dp" />
+</LinearLayout>

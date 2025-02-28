@@ -1,0 +1,5 @@
+<!-- res/drawable/bg_modal_option.xml -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <solid android:color="@color/neutral_medium" />
+    <corners android:radius="8dp" /> <!-- Cantos arredondados -->
+</shape>
