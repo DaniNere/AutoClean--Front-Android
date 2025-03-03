@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.auth.documents.ProfilePhotoUploadFragment"
+    android:background="@drawable/gradiente">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_marginTop="50dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/inter"
+                android:gravity="center"
+                android:text="@string/foto_perfil"
+                android:textColor="@color/primary_variant2"
+                android:textSize="32sp" />
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:background="@drawable/rounded_top_border"
+            android:layout_marginTop="100dp"
+            android:paddingBottom="16dp">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="55dp"
+                android:layout_marginStart="21dp">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_selfie"
+                    android:layout_marginEnd="5dp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/tire_sua_foto_perfil"
+                    android:textSize="14sp"
+                    android:fontFamily="@font/inter"
+                    android:textStyle="bold"
+                    />
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginTop="14sp"
+                android:layout_marginStart="37dp"
+                android:layout_marginEnd="61dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/instrucao_foto_perfil_1"
+                    android:textColor="@color/secondary_variant"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/instrucao_foto_perfil_2"
+                    android:layout_marginTop="10dp"
+                    android:textColor="@color/secondary_variant"/>
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/instrucao_foto_perfil_3"
+                    android:layout_marginTop="10dp"
+                    android:textColor="@color/secondary_variant"/>
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/uploadLinearLayout"
+                android:layout_width="264dp"
+                android:layout_height="144dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="39dp"
+                android:background="@drawable/dotted_border"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="38dp"
+                    android:layout_gravity="center_horizontal"
+                    android:src="@drawable/camera_add" />
+
+            </LinearLayout>
+
+            <com.google.android.material.button.MaterialButton
+                style="@style/PrimaryButton"
+                android:layout_width="310dp"
+                android:layout_height="48dp"
+                android:text="@string/upload_button_text"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="128dp" />
+
+
+        </LinearLayout>
+
+    </FrameLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

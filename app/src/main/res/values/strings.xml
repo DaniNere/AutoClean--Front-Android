@@ -127,4 +127,37 @@
 
     <string name="default_web_client_id">43935819173-cgoqgmgbs1lni9luoujumol4o2msnmc7.apps.googleusercontent.com</string>
 
+    <!-- CRLV_Upload -->
+    <string name="titulo_documento_veiculo">Documento do veículo</string>
+    <string name="foto_documento_veiculo">Foto do Documento do Veículo - CRLV</string>
+    <string name="instrucao_1">1. O documento deve aparecer por completo, de forma legível e nítida;</string>
+    <string name="instrucao_2">2. Remova o documento do plástico, se possível;</string>
+    <string name="instrucao_3">3. Escolha um ambiente iluminado para tirar a sua foto;</string>
+    <string name="instrucao_4">4. Enquadre apenas o documento;</string>
+
+    <!-- CNH_Upload -->
+    <string name="title_foto_cnh">Foto da CNH</string>
+    <string name="foto_cnh">Foto da sua CNH</string>
+    <string name="instrucao_cnh_1">1. O documento deve aparecer por completo, de forma legível e nítida;</string>
+    <string name="instrucao_cnh_2">2. Remova o documento do plástico, se possível;</string>
+    <string name="instrucao_cnh_3">3. Escolha um ambiente iluminado para tirar a sua foto;</string>
+    <string name="instrucao_cnh_4">4. Enquadre apenas o documento;</string>
+    <string name="cnh_frente">Frente</string>
+    <string name="cnh_verso">Verso</string>
+
+    <!-- Foto_perfil-->
+    <string name="foto_perfil">Foto de Perfil</string>
+    <string name="tire_sua_foto_perfil">Tire sua foto do Perfil</string>
+    <string name="instrucao_foto_perfil_1">1. Fique de frente a câmera e deixe os olhos e a boca visíveis;</string>
+    <string name="instrucao_foto_perfil_2">2. Confira se a foto está nítida, bem iluminada e sem reflexos;</string>
+    <string name="instrucao_foto_perfil_3">3. Não fotografe outra foto, não use filtros nem retoque a imagem;</string>
+
+    <!-- Selfie com CNH-->
+    <string name="selfie_com_cnh">Selfie com CNH</string>
+    <string name="tire_sua_foto_com_cnh">Tire sua Foto segurando sua CNH</string>
+    <string name="instrucao_selfie_cnh_1">1. Fique de frente a câmera segurando o documento ao lado do rosto.</string>
+    <string name="instrucao_selfie_cnh_2">2. Confira se a foto está nítida, bem iluminada e sem reflexos.</string>
+
+
+
 </resources>

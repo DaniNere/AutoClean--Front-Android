@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/gradiente"
+    tools:context=".ui.auth.documents.CNHPhotoFragment">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/inter"
+                android:gravity="center"
+                android:text="@string/title_foto_cnh"
+                android:textColor="@color/primary_variant2"
+                android:textSize="32sp" />
+        </LinearLayout>
+
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fillViewport="true">
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@drawable/rounded_top_border"
+                android:paddingBottom="16dp"
+                android:layout_marginTop="100dp">
+
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="21dp"
+                    android:layout_marginTop="55dp"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="5dp"
+                        android:src="@drawable/ic_card_doc" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/inter"
+                        android:text="@string/foto_cnh"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="37dp"
+                    android:layout_marginTop="14sp"
+                    android:layout_marginEnd="61dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/instrucao_cnh_1"
+                        android:textColor="@color/secondary_variant" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:text="@string/instrucao_cnh_2"
+                        android:textColor="@color/secondary_variant" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:text="@string/instrucao_cnh_3"
+                        android:textColor="@color/secondary_variant" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:text="@string/instrucao_cnh_4"
+                        android:textColor="@color/secondary_variant" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="65dp"
+                    android:layout_marginTop="26dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/inter"
+                        android:text="@string/cnh_frente"
+                        android:textColor="@color/black"
+                        android:textSize="16dp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="264dp"
+                    android:layout_height="144dp"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="12dp"
+                    android:background="@drawable/dotted_border"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:padding="38dp"
+                        android:src="@drawable/camera_add" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="65dp"
+                    android:layout_marginTop="36dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/inter"
+                        android:text="@string/cnh_verso"
+                        android:textColor="@color/black"
+                        android:textSize="16dp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/uploadLinearLayout"
+                    android:layout_width="264dp"
+                    android:layout_height="144dp"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="12dp"
+                    android:background="@drawable/dotted_border"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:padding="38dp"
+                        android:src="@drawable/camera_add" />
+
+                </LinearLayout>
+
+                <com.google.android.material.button.MaterialButton
+
+                    style="@style/PrimaryButton"
+                    android:layout_width="310dp"
+                    android:layout_height="48dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="74dp"
+                    android:text="@string/upload_button_text" />
+
+            </LinearLayout>
+
+        </androidx.core.widget.NestedScrollView>
+
+    </FrameLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
