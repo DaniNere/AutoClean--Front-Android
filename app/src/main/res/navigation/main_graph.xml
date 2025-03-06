@@ -61,7 +61,11 @@
         android:id="@+id/recoverAccountFragment"
         android:name="com.example.autoclean.ui.auth.forgot.RecoverAccountFragment"
         android:label="fragment_recover_account"
-        tools:layout="@layout/fragment_recover_account" />
+        tools:layout="@layout/fragment_recover_account" >
+        <action
+            android:id="@+id/action_recoverAccountFragment_to_profilePhotoUploadFragment"
+            app:destination="@id/profilePhotoUploadFragment" />
+    </fragment>
     <fragment
         android:id="@+id/phoneVerificationStartFragment"
         android:name="com.example.autoclean.ui.auth.verification.PhoneVerificationStartFragment"
@@ -188,6 +192,18 @@
         <action
             android:id="@+id/action_professionalVerificationFragment_to_cleaningkitmanagerFragment"
             app:destination="@id/cleaningkitmanagerFragment" />
+        <action
+            android:id="@+id/action_professionalVerificationFragment_to_profilePhotoUploadFragment"
+            app:destination="@id/profilePhotoUploadFragment" />
+        <action
+            android:id="@+id/action_professionalVerificationFragment_to_CNHPhotoFragment"
+            app:destination="@id/CNHPhotoFragment" />
+        <action
+            android:id="@+id/action_professionalVerificationFragment_to_selfieWithCNHFragment"
+            app:destination="@id/selfieWithCNHFragment" />
+        <action
+            android:id="@+id/action_professionalVerificationFragment_to_CRLVUploadFragment"
+            app:destination="@id/CRLVUploadFragment" />
     </fragment>
     <fragment
         android:id="@+id/cleaningkitmanagerFragment"
@@ -233,4 +249,24 @@
         android:name="com.example.autoclean.ui.home.UserHomeFragment"
         android:label="fragment_user_home"
         tools:layout="@layout/fragment_user_home" />
+    <fragment
+        android:id="@+id/profilePhotoUploadFragment"
+        android:name="com.example.autoclean.ui.auth.documents.ProfilePhotoUploadFragment"
+        android:label="fragment_profile_photo_upload"
+        tools:layout="@layout/fragment_profile_photo_upload" />
+    <fragment
+        android:id="@+id/CNHPhotoFragment"
+        android:name="com.example.autoclean.ui.auth.documents.CNHPhotoFragment"
+        android:label="fragment_cnh_photo"
+        tools:layout="@layout/fragment_cnh_photo" />
+    <fragment
+        android:id="@+id/selfieWithCNHFragment"
+        android:name="com.example.autoclean.ui.auth.documents.SelfieWithCNHFragment"
+        android:label="fragment_selfie_with_cnh"
+        tools:layout="@layout/fragment_selfie_with_cnh" />
+    <fragment
+        android:id="@+id/CRLVUploadFragment"
+        android:name="com.example.autoclean.ui.auth.documents.CRLVUploadFragment"
+        android:label="fragment_crlv_upload"
+        tools:layout="@layout/fragment_crlv_upload" />
 </navigation>

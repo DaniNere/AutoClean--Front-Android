@@ -59,6 +59,7 @@ dependencies {
     implementation("com.google.android.gms:play-services-auth:20.4.1")
     implementation("com.google.firebase:firebase-firestore-ktx")
     implementation("com.google.dagger:hilt-android:2.51.1")
+    implementation ("com.google.firebase:firebase-storage-ktx")
     implementation(libs.androidx.navigation.fragment.ktx)
     implementation(libs.androidx.navigation.ui.ktx)
 
