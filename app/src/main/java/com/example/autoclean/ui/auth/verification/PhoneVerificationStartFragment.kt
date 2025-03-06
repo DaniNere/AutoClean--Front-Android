@@ -80,7 +80,7 @@ class PhoneVerificationStartFragment : Fragment() {
 
         // Para fins de teste, vamos usar um número fixo
         val countryCode = binding.ccp.selectedCountryCodeWithPlus ?: "+"
-        val phoneNumber = "31988417346"
+        val phoneNumber = "031999999999"
         val fullPhoneNumber = "$countryCode$phoneNumber"
 
         /*val countryCode = binding.ccp.selectedCountryCodeWithPlus ?: "+"

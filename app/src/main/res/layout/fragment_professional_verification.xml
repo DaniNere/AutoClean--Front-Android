@@ -69,7 +69,8 @@
                 android:layout_marginTop="40dp"
                 android:orientation="vertical">
 
-                <Button
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/photo_perfil"
                     style="@style/TransparentButton"
                     android:text="@string/btn_profile_photo" />
 

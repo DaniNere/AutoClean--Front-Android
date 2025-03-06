@@ -66,6 +66,7 @@
                 android:textSize="14sp" />
 
             <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_continue"
                 style="@style/PrimaryButton"
                 android:layout_width="310dp"
                 android:layout_height="48dp"

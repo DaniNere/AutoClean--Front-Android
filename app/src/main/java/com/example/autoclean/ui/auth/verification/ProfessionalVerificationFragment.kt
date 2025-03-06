@@ -29,6 +29,10 @@ class ProfessionalVerificationFragment : Fragment() {
 
         initListeners()
         updateUserName(args.displayName)
+
+        binding.photoPerfil.setOnClickListener{
+            findNavController().navigate(R.id.action_professionalVerificationFragment_to_profilePhotoUploadFragment)
+        }
     }
 
     private fun initListeners() {
