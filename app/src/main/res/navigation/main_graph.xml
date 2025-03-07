@@ -248,7 +248,24 @@
         android:id="@+id/userHomeFragment"
         android:name="com.example.autoclean.ui.home.UserHomeFragment"
         android:label="fragment_user_home"
-        tools:layout="@layout/fragment_user_home" />
+        tools:layout="@layout/fragment_user_home">
+
+        <argument
+            android:name="displayName"
+            app:argType="string" />
+        <argument
+            android:name="email"
+            app:argType="string" />
+        <argument
+            android:name="uid"
+            app:argType="string" />
+        <argument
+            android:name="photoUrl"
+            app:argType="string" />
+        <argument
+            android:name="skipRegistration"
+            app:argType="boolean" />
+    </fragment>
     <fragment
         android:id="@+id/profilePhotoUploadFragment"
         android:name="com.example.autoclean.ui.auth.documents.ProfilePhotoUploadFragment"

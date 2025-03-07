@@ -12,7 +12,7 @@ import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.fragment.app.Fragment
 import com.example.autoclean.data.api.ApiClient
-import com.example.autoclean.data.model.UpdateAccountDto
+import com.example.autoclean.data.model.dto.UpdateAccountDto
 import com.example.autoclean.databinding.FragmentProfilePhotoUploadBinding
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.ktx.storage

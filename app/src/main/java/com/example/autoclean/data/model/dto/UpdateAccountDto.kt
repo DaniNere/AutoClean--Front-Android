@@ -1,4 +1,4 @@
-package com.example.autoclean.data.model
+package com.example.autoclean.data.model.dto
 
 data class UpdateAccountDto(
     val fullname: String? = null,
