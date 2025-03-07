@@ -11,8 +11,12 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.activity.result.ActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.example.autoclean.R
+import com.example.autoclean.data.api.ApiClient
+import com.example.autoclean.data.model.dto.LoginDto
+import com.example.autoclean.data.model.response.LoginResponse
 import com.example.autoclean.databinding.FragmentLoginBinding
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount
@@ -22,6 +26,7 @@ import com.google.android.gms.common.api.ApiException
 import com.google.android.gms.tasks.Task
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.GoogleAuthProvider
+import kotlinx.coroutines.launch
 
 class LoginFragment : Fragment() {
 
@@ -50,7 +55,75 @@ class LoginFragment : Fragment() {
 
 
         initListeners()
+
+        binding.btnEntrar.setOnClickListener {
+            val email = binding.editTextEmail.text.toString()
+            val password = binding.editTextPassword.text.toString()
+            performLogin(email, password)
+        }
+
     }
+
+    private fun performLogin(email: String, password: String) {
+        Log.d("Login", "Tentando fazer login com email: $email")
+
+        lifecycleScope.launch {
+            try {
+                val response = ApiClient.apiService.login(LoginDto(email, password))
+                Log.d("Login", "Resposta recebida: ${response.raw()}")
+
+                if (response.isSuccessful && response.body() != null) {
+                    val loginResponse = response.body()!!
+                    Log.d("Login", "Login bem-sucedido para usuário: ${loginResponse.user.fullname}")
+                    handleSuccessfulLogin(loginResponse)
+                } else {
+                    val errorBody = response.errorBody()?.string()
+                    Log.e("Login", "Erro no login: Código: ${response.code()}, Mensagem: ${response.message()}, Corpo do erro: $errorBody")
+                    Toast.makeText(
+                        requireContext(),
+                        "Falha no login: ${response.message()}",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                }
+            } catch (e: Exception) {
+                Log.e("Login", "Exceção durante o login: ${e.message}", e)
+                Toast.makeText(requireContext(), "Erro: ${e.message}", Toast.LENGTH_SHORT).show()
+            }
+        }
+    }
+
+    private fun handleSuccessfulLogin(loginResponse: LoginResponse) {
+        val accessToken = loginResponse.accessToken
+        val refreshToken = loginResponse.refreshToken
+        val user = loginResponse.user
+
+        Log.d("Login", "Token de acesso recebido: $accessToken")
+        Log.d("Login", "Token de atualização recebido: $refreshToken")
+        Log.d("Login", "Usuário logado: ${user.fullname}")
+
+        val sharedPrefs = requireContext().getSharedPreferences("AuthPrefs", Context.MODE_PRIVATE)
+        with(sharedPrefs.edit()) {
+            putString("accessToken", accessToken)
+            putString("refreshToken", refreshToken)
+            apply()
+        }
+
+        Toast.makeText(
+            requireContext(),
+            "Bem-vindo(a), ${user.fullname}!",
+            Toast.LENGTH_SHORT
+        ).show()
+
+        val action = LoginFragmentDirections.actionLoginFragmentToUserHomeFragment(
+            skipRegistration = false,
+            displayName = user.fullname,
+            email = user.email,
+            uid = user.id.toString(),
+            photoUrl = user.profilePicture ?: ""
+        )
+        findNavController().navigate(action)
+    }
+
 
     private fun setupGoogleSignIn() {
         val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
@@ -182,6 +255,7 @@ class LoginFragment : Fragment() {
             apply()
         }
     }
+
     private fun navigateToProfile(
         displayName: String?,
         email: String?,

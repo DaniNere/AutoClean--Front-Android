@@ -16,9 +16,8 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
-import com.example.autoclean.R
 import com.example.autoclean.data.api.ApiClient
-import com.example.autoclean.data.model.model.CreateAccountDto
+import com.example.autoclean.data.model.dto.CreateAccountDto
 import com.example.autoclean.databinding.FragmentProfileProfissionalBinding
 import org.json.JSONObject
 import retrofit2.Call
@@ -26,7 +25,6 @@ import retrofit2.Callback
 import retrofit2.Response
 import java.text.SimpleDateFormat
 import java.util.*
-import okio.IOException
 import org.json.JSONException
 
 class ProfileProfissionalFragment : Fragment() {

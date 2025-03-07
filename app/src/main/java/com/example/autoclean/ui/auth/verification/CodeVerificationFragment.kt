@@ -13,7 +13,7 @@ import androidx.navigation.fragment.navArgs
 import com.example.autoclean.databinding.FragmentCodeVerificationBinding
 import com.example.autoclean.R
 import com.example.autoclean.data.api.ApiClient
-import com.example.autoclean.data.model.model.CreateAccountDto
+import com.example.autoclean.data.model.dto.CreateAccountDto
 import com.example.autoclean.data.model.request.VerifyCodeTwilio
 import retrofit2.Call
 import retrofit2.Callback
