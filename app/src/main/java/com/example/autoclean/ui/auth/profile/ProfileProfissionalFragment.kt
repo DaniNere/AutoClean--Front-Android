@@ -259,7 +259,7 @@ class ProfileProfissionalFragment : Fragment() {
             email = email.takeIf { it.isNotEmpty() } ?: "",
             password = password.takeIf { it.isNotEmpty() } ?: "",
             role = role.takeIf { it.isNotEmpty() } ?: "default_role",
-            uid = uid.takeIf { it.isNotEmpty() } ?: "",
+            firebaseUid = uid.takeIf { it.isNotEmpty() } ?: "",
             phone = phoneNumber.takeIf { it.isNotEmpty() } ?: binding.editTextPhone.text.toString(),
             photoUrl = photoUrl.takeIf { it.isNotEmpty() } ?: "",
             cpfOrCnpj = cpfOrCnpj,

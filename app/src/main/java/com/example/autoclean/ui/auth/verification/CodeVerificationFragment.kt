@@ -125,7 +125,7 @@ class CodeVerificationFragment : Fragment() {
             email = verificationViewModel.email.value ?: "",
             password = "",
             role = verificationViewModel.role.value ?: "",
-            uid = verificationViewModel.uid.value ?: "",
+            firebaseUid =  verificationViewModel.uid.value ?: "",
             phone = verificationViewModel.phoneNumber.value ?: "",
             photoUrl = verificationViewModel.photoUrl.value ?: ""
         )
@@ -136,6 +136,11 @@ class CodeVerificationFragment : Fragment() {
             override fun onResponse(call: Call<Void>, response: Response<Void>) {
                 if (response.isSuccessful) {
                     Log.d("SaveUserData", "User data saved successfully!")
+                    Toast.makeText(
+                        requireContext(),
+                        "Dados do usuário salvos com sucesso!",
+                        Toast.LENGTH_SHORT
+                    ).show()
                 } else {
                     Log.e("SaveUserData", "Error saving user data: ${response.code()} - ${response.errorBody()?.string()}")
                 }
