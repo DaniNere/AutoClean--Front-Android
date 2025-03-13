@@ -13,6 +13,9 @@ object ApiClient {
     // Base URL do serviço local
     private const val LOCAL_BASE_URL = "http://10.0.2.2:3000/"
 
+    //private const val LOCAL_BASE_URL = "http://192.168.18.192:3000/"
+
+
     // Configura o OkHttpClient com um logging interceptor
     private val okHttpClient: OkHttpClient by lazy {
         val loggingInterceptor = HttpLoggingInterceptor().apply {
