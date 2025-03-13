@@ -14,3 +14,7 @@ data class User(
     val phone: String?,
     val cpfOrCnpj: String?
 )
+
+data class UserResponse(
+    val exists: Boolean
+)
