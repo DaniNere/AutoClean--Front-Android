@@ -28,6 +28,9 @@
         <action
             android:id="@+id/action_loginFragment_to_userHomeFragment"
             app:destination="@id/userHomeFragment" />
+        <action
+            android:id="@+id/action_loginFragment_to_proHomeFragment"
+            app:destination="@id/proHomeFragment" />
     </fragment>
     <fragment
         android:id="@+id/profileFragment"
@@ -282,4 +285,25 @@
         android:name="com.example.autoclean.ui.auth.documents.CRLVUploadFragment"
         android:label="fragment_crlv_upload"
         tools:layout="@layout/fragment_crlv_upload" />
+    <fragment
+        android:id="@+id/proHomeFragment"
+        android:name="com.example.autoclean.ui.home.ProHomeFragment"
+        android:label="fragment_pro_home"
+        tools:layout="@layout/fragment_pro_home">
+        <argument
+            android:name="displayName"
+            app:argType="string" />
+        <argument
+            android:name="email"
+            app:argType="string" />
+        <argument
+            android:name="uid"
+            app:argType="string" />
+        <argument
+            android:name="photoUrl"
+            app:argType="string" />
+        <argument
+            android:name="skipRegistration"
+            app:argType="boolean" />
+    </fragment>
 </navigation>

@@ -101,15 +101,17 @@ class LoginFragment : Fragment() {
         val accessToken = loginResponse.accessToken
         val refreshToken = loginResponse.refreshToken
         val user = loginResponse.user
+        val role = loginResponse.user.role
 
         Log.d("Login", "Token de acesso recebido: $accessToken")
         Log.d("Login", "Token de atualização recebido: $refreshToken")
-        Log.d("Login", "Usuário logado: ${user.fullname}")
+        Log.d("Login", "Role: ${user.role}")
 
         val sharedPrefs = requireContext().getSharedPreferences("AuthPrefs", Context.MODE_PRIVATE)
         with(sharedPrefs.edit()) {
             putString("accessToken", accessToken)
             putString("refreshToken", refreshToken)
+            putString("userRole", role)
             apply()
         }
 
@@ -119,13 +121,38 @@ class LoginFragment : Fragment() {
             Toast.LENGTH_SHORT
         ).show()
 
-        val action = LoginFragmentDirections.actionLoginFragmentToUserHomeFragment(
-            displayName = user.fullname,
-            email = user.email,
-            uid = user.id.toString(),
-            photoUrl = user.profilePicture ?: ""
-        )
-        findNavController().navigate(action)
+
+        when (role) {
+            "user" -> {
+                val action = LoginFragmentDirections.actionLoginFragmentToUserHomeFragment(
+                    skipRegistration = false,
+                    displayName = user.fullname,
+                    email = user.email,
+                    uid = user.id.toString(),
+                    photoUrl = user.profilePicture ?: "",
+
+                    )
+                findNavController().navigate(action)
+
+            }
+
+
+            "pro" -> {
+                val action = LoginFragmentDirections.actionLoginFragmentToProHomeFragment(
+                    skipRegistration = false,
+                    displayName = user.fullname,
+                    email = user.email,
+                    uid = user.id.toString(),
+                    photoUrl = user.profilePicture ?: "",
+                )
+                findNavController().navigate(action)
+            }
+
+            else -> {
+                Toast.makeText(requireContext(), "Role não reconhecido!", Toast.LENGTH_SHORT).show()
+            }
+        }
+        
     }
 
 
@@ -316,8 +343,10 @@ class LoginFragment : Fragment() {
             photoUrl = photoUrl ?: ""
         )
 
-        findNavController().navigate(action)
-    }
+
+    private fun navigateToHome() {
+        findNavController().navigate(R.id.action_loginFragment_to_userHomeFragment)
+
 
     override fun onDestroyView() {
         super.onDestroyView()
