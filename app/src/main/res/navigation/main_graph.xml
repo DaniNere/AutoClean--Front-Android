@@ -302,8 +302,5 @@
         <argument
             android:name="photoUrl"
             app:argType="string" />
-        <argument
-            android:name="skipRegistration"
-            app:argType="boolean" />
     </fragment>
 </navigation>
