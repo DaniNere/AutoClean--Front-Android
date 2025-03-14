@@ -1,7 +1,9 @@
 package com.example.autoclean.ui.auth.documents
 
+import android.Manifest
 import android.app.Activity
 import android.content.Intent
+import android.content.pm.PackageManager
 import android.net.Uri
 import android.os.Bundle
 import android.util.Log
@@ -10,6 +12,8 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.core.content.ContextCompat
+import androidx.core.content.FileProvider
 import androidx.fragment.app.Fragment
 import com.example.autoclean.data.api.ApiClient
 import com.example.autoclean.data.model.dto.UpdateAccountDto
@@ -19,47 +23,79 @@ import com.google.firebase.storage.ktx.storage
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import java.io.File
+import java.io.IOException
+import java.text.SimpleDateFormat
+import java.util.*
 
 class ProfilePhotoUploadFragment : Fragment() {
 
     private var _binding: FragmentProfilePhotoUploadBinding? = null
     private val binding get() = _binding!!
     private var imageUrl: String? = null
+    private lateinit var photoUri: Uri
 
     companion object {
         private const val TAG = "ProfilePhotoUploadFragment"
     }
 
-    private val selectImageLauncher =
-        registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
-            if (result.resultCode == Activity.RESULT_OK) {
-                result.data?.let { intent ->
-                    val imageUri = intent.data
-                    if (imageUri != null) {
-                        Log.d(TAG, "Image selected: $imageUri")
-                        displayImagePreview(imageUri)
-                        uploadImageToFirebase(imageUri)
-                    } else {
-                        showToast("Failed to process selected image.")
-                    }
-                }
-            } else {
-                showToast("No document selected.")
+    private val requestPermissionsLauncher = registerForActivityResult(
+        ActivityResultContracts.RequestMultiplePermissions()
+    ) { permissions ->
+        val cameraGranted = permissions[Manifest.permission.CAMERA] == true
+        val storageGranted = permissions[Manifest.permission.READ_EXTERNAL_STORAGE] == true
+
+        when {
+            cameraGranted -> openCamera()
+            storageGranted -> openDocumentPicker()
+            else -> {
+                Log.d(TAG, "Permissions denied for camera or storage.")
+                Toast.makeText(requireContext(), "Permissões negadas. Não é possível abrir a câmera ou galeria.", Toast.LENGTH_SHORT).show()
             }
         }
+    }
+
+    private val takePictureLauncher = registerForActivityResult(ActivityResultContracts.TakePicture()) { success ->
+        if (success) {
+            Log.d(TAG, "Foto capturada com sucesso: $photoUri")
+            displayImagePreview(photoUri)
+            uploadImageToFirebase(photoUri)
+        } else {
+            Log.d(TAG, "Falha ao capturar a foto.")
+            showToast("Não foi possível capturar a foto.")
+        }
+    }
+
+    private val selectImageLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
+        if (result.resultCode == Activity.RESULT_OK) {
+            result.data?.data?.let { uri ->
+                Log.d(TAG, "Imagem selecionada: $uri")
+                displayImagePreview(uri)
+                uploadImageToFirebase(uri)
+            } ?: showToast("Falha ao processar a imagem selecionada.")
+        } else {
+            showToast("Nenhum documento selecionado.")
+        }
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View {
         _binding = FragmentProfilePhotoUploadBinding.inflate(inflater, container, false)
 
-        binding.uploadLinearLayout.setOnClickListener { openDocumentPicker() }
+
+        binding.btnEnviar.isEnabled = false
+
+        binding.uploadLinearLayout.setOnClickListener { handleActionButtonClick() }
 
         binding.btnEnviar.setOnClickListener {
-            imageUrl?.let { url ->
-                updateProfilePictureInDatabase("9", url)
-            } ?: showToast("Image has not been uploaded.")
+            if (!imageUrl.isNullOrEmpty()) {
+                updateProfilePictureInDatabase("12", imageUrl!!)
+            } else {
+                showToast("A URL da imagem ainda não está pronta.")
+            }
         }
+
 
         return binding.root
     }
@@ -67,6 +103,60 @@ class ProfilePhotoUploadFragment : Fragment() {
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
+    }
+
+    private fun handleActionButtonClick() {
+        if (ContextCompat.checkSelfPermission(requireContext(), Manifest.permission.CAMERA) == PackageManager.PERMISSION_GRANTED) {
+            openCamera()
+        } else if (ContextCompat.checkSelfPermission(requireContext(), Manifest.permission.READ_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED) {
+            openDocumentPicker()
+        } else {
+            requestPermissionsIfNeeded()
+        }
+    }
+
+    private fun requestPermissionsIfNeeded() {
+        val permissionsToRequest = mutableListOf<String>()
+
+        if (ContextCompat.checkSelfPermission(requireContext(), Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
+            permissionsToRequest.add(Manifest.permission.CAMERA)
+            Log.d(TAG, "Camera permission needed.")
+        }
+
+        if (ContextCompat.checkSelfPermission(requireContext(), Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
+            permissionsToRequest.add(Manifest.permission.READ_EXTERNAL_STORAGE)
+            Log.d(TAG, "Storage permission needed.")
+        }
+
+        if (permissionsToRequest.isNotEmpty()) {
+            Log.d(TAG, "Solicitando permissões.")
+            requestPermissionsLauncher.launch(permissionsToRequest.toTypedArray())
+        }
+    }
+
+    private fun openCamera() {
+        try {
+            val photoFile = createImageFile()
+            photoUri = FileProvider.getUriForFile(
+                requireContext(),
+                "${requireContext().packageName}.provider",
+                photoFile
+            )
+            Log.d(TAG, "URI da foto criada: $photoUri")
+            takePictureLauncher.launch(photoUri)
+        } catch (e: IOException) {
+            Log.e(TAG, "Erro ao criar arquivo para imagem: ${e.message}")
+            Toast.makeText(requireContext(), "Erro ao criar arquivo para imagem.", Toast.LENGTH_SHORT).show()
+        }
+    }
+
+    @Throws(IOException::class)
+    private fun createImageFile(): File {
+        val timeStamp: String = SimpleDateFormat("yyyyMMdd_HHmmss", Locale.US).format(Date())
+        val storageDir: File = requireContext().getExternalFilesDir(null) ?: requireContext().filesDir
+        return File.createTempFile("JPEG_${timeStamp}_", ".jpg", storageDir).apply {
+            Log.d(TAG, "Arquivo de imagem criado: $absolutePath")
+        }
     }
 
     private fun openDocumentPicker() {
@@ -78,44 +168,50 @@ class ProfilePhotoUploadFragment : Fragment() {
     }
 
     private fun uploadImageToFirebase(uri: Uri) {
+        Log.d(TAG, "Inicio do upload para Firebase com URI: $uri")
         val storageReference = Firebase.storage.reference
         val imageRef = storageReference.child("images/${uri.lastPathSegment}")
 
         imageRef.putFile(uri)
             .addOnSuccessListener {
+                Log.d(TAG, "Upload bem-sucedido")
                 imageRef.downloadUrl.addOnSuccessListener { downloadUri ->
                     imageUrl = downloadUri.toString()
-                    Log.d(TAG, "Image uploaded successfully. URL: $downloadUri")
-                    showToast("Upload successful!")
-                    binding.btnEnviar.isEnabled = true
+                    Log.d(TAG, "URL da imagem no Firebase: $imageUrl")
+                    showToast("Upload realizado com sucesso!")
+
+                    updateProfilePictureInDatabase("10", imageUrl!!)
+
                 }
             }.addOnFailureListener { e ->
-                Log.d(TAG, "Failed to upload image: ${e.message}")
-                showToast("Failed to upload image.")
+                Log.d(TAG, "Falha ao enviar a imagem: ${e.message}")
+                showToast("Falha ao enviar a imagem.")
             }
     }
 
     private fun updateProfilePictureInDatabase(userId: String, imageUrl: String) {
+        Log.d(TAG, "Atualizando URL da imagem no banco de dados.")
         val updateAccountDto = UpdateAccountDto(photoUrl = imageUrl)
-        val call = ApiClient.apiService.updateAccount(userId, updateAccountDto)
+        Log.d(TAG, "URL obtida após o upload: $updateAccountDto")
 
-        call.enqueue(object : Callback<Void> {
+        ApiClient.apiService.updateAccount(userId, updateAccountDto).enqueue(object : Callback<Void> {
             override fun onResponse(call: Call<Void>, response: Response<Void>) {
                 if (response.isSuccessful) {
-                    showToast("URL successfully saved in DB.")
+                    showToast("URL salva no banco de dados com sucesso.")
                 } else {
-                    showToast("Failed to save URL in DB.")
+                    showToast("Falha ao salvar URL no banco de dados.")
                 }
                 response.errorBody()?.close()
             }
 
             override fun onFailure(call: Call<Void>, t: Throwable) {
-                showToast("Server connection error.")
+                showToast("Erro de conexão com o servidor.")
             }
         })
     }
 
     private fun displayImagePreview(uri: Uri) {
+        Log.d(TAG, "Mostrando preview da imagem: $uri")
         binding.imagePreview.apply {
             setImageURI(uri)
             visibility = View.VISIBLE
@@ -123,6 +219,7 @@ class ProfilePhotoUploadFragment : Fragment() {
     }
 
     private fun showToast(message: String) {
+        Log.d(TAG, "Mostrando Toast: $message")
         Toast.makeText(requireContext(), message, Toast.LENGTH_SHORT).show()
     }
 }
