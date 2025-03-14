@@ -17,6 +17,7 @@ import com.example.autoclean.R
 import com.example.autoclean.data.api.ApiClient
 import com.example.autoclean.data.model.dto.LoginDto
 import com.example.autoclean.data.model.response.LoginResponse
+import com.example.autoclean.data.model.response.UserResponse
 import com.example.autoclean.databinding.FragmentLoginBinding
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount
@@ -27,6 +28,9 @@ import com.google.android.gms.tasks.Task
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.GoogleAuthProvider
 import kotlinx.coroutines.launch
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 class LoginFragment : Fragment() {
 
@@ -48,11 +52,6 @@ class LoginFragment : Fragment() {
 
         auth = FirebaseAuth.getInstance()
         setupGoogleSignIn()
-
-        resetFirstLoginFlag()
-
-        logSharedPreferences()
-
 
         initListeners()
 
@@ -122,6 +121,7 @@ class LoginFragment : Fragment() {
             Toast.LENGTH_SHORT
         ).show()
 
+
         when (role) {
             "user" -> {
                 val action = LoginFragmentDirections.actionLoginFragmentToUserHomeFragment(
@@ -152,6 +152,7 @@ class LoginFragment : Fragment() {
                 Toast.makeText(requireContext(), "Role não reconhecido!", Toast.LENGTH_SHORT).show()
             }
         }
+        
     }
 
 
@@ -243,11 +244,6 @@ class LoginFragment : Fragment() {
             .addOnCompleteListener(requireActivity()) { task ->
                 if (task.isSuccessful) {
                     Log.d("GoogleLogin", "Autenticação com Google efetuada com sucesso.")
-                    Toast.makeText(
-                        requireContext(),
-                        "Autenticação Efetuada com o Google",
-                        Toast.LENGTH_SHORT
-                    ).show()
 
                     val user = auth.currentUser
                     val displayName = user?.displayName
@@ -255,11 +251,8 @@ class LoginFragment : Fragment() {
                     val uid = user?.uid
                     val photoUrl = user?.photoUrl?.toString()
 
-                    if (isFirstLogin()) {
-                        navigateToProfile(displayName, email, uid, photoUrl, true)
-                    } else {
-                        navigateToHome()
-                    }
+                    // Verificar se o usuário já está registrado no banco de dados
+                    verifyUserInDatabase(uid, displayName, email, photoUrl)
                 } else {
                     Log.e("GoogleLogin", "Erro de Autenticação com o Google")
                     Toast.makeText(
@@ -271,20 +264,54 @@ class LoginFragment : Fragment() {
             }
     }
 
-    private fun isFirstLogin(): Boolean {
-        val prefs = requireContext().getSharedPreferences("AppPrefs", Context.MODE_PRIVATE)
-        val isFirst = prefs.getBoolean("isFirstLogin", true)
-        Log.d("GoogleLogin", "Verificando primeira execução: $isFirst")
-        return isFirst
+    private fun verifyUserInDatabase(
+        uid: String?,
+        displayName: String?,
+        email: String?,
+        photoUrl: String?
+    ) {
+        Log.d("DatabaseVerification", "Iniciando verificação do usuário no banco de dados.")
+
+        if (uid == null) {
+            Log.e("DatabaseVerification", "UID é nulo. Não é possível continuar a verificação.")
+            return
+        }
+
+        // Logar o valor do UID antes de fazer a chamada da API
+        Log.d("DatabaseVerification", "Verificando UID: $uid")
+
+        ApiClient.apiService.checkUserExists(uid).enqueue(object : Callback<UserResponse> {
+            override fun onResponse(call: Call<UserResponse>, response: Response<UserResponse>) {
+                if (response.isSuccessful) {
+                    val userExists = response.body()?.exists ?: false
+                    Log.d("DatabaseVerification", "Requisição sucedida. Usuário existe: $userExists")
+
+                    if (userExists) {
+                        Log.d("GoogleLogin", "Usuário já registrado.")
+
+                        navigateToHome(displayName, email, uid, photoUrl)
+                    }  else {
+                        // Novo usuário
+                        Log.d("GoogleLogin", "Novo usuário, navegando para profile.")
+                        navigateToProfile(displayName, email, uid, photoUrl, true)
+                    }
+                } else {
+                    Log.e("DatabaseVerification", "Requisição falhou com o código: ${response.code()}, mensagem: ${response.message()}")
+                }
+            }
+
+            override fun onFailure(call: Call<UserResponse>, t: Throwable) {
+                Log.e("GoogleLogin", "Falha na verificação do banco de dados: ${t.message}")
+                Toast.makeText(
+                    requireContext(),
+                    "Erro na verificação do usuário.",
+                    Toast.LENGTH_SHORT
+                ).show()
+            }
+        })
     }
 
-    private fun setFirstLogin(isFirst: Boolean) {
-        val prefs = requireContext().getSharedPreferences("AppPrefs", Context.MODE_PRIVATE)
-        with(prefs.edit()) {
-            putBoolean("isFirstLogin", isFirst)
-            apply()
-        }
-    }
+// Métodos separados para navegação
 
     private fun navigateToProfile(
         displayName: String?,
@@ -303,26 +330,23 @@ class LoginFragment : Fragment() {
         findNavController().navigate(action)
     }
 
-    private fun logSharedPreferences() {
-        val prefs = requireContext().getSharedPreferences("AppPrefs", Context.MODE_PRIVATE)
-        val allEntries = prefs.all
-        for ((key, value) in allEntries) {
-            Log.d("GoogleLogin", "Chave: $key, Valor: $value")
-        }
-    }
+    private fun navigateToHome(
+        displayName: String?,
+        email: String?,
+        uid: String?,
+        photoUrl: String?,
+    ) {
+        val action = LoginFragmentDirections.actionLoginFragmentToUserHomeFragment(
+            displayName = displayName ?: "",
+            email = email ?: "",
+            uid = uid ?: "",
+            photoUrl = photoUrl ?: ""
+        )
 
-    private fun resetFirstLoginFlag() {
-        val prefs = requireContext().getSharedPreferences("AppPrefs", Context.MODE_PRIVATE)
-        with(prefs.edit()) {
-            clear()
-            Log.d("GoogleLogin", "SharedPreferences resetado.")
-            apply()
-        }
-    }
 
     private fun navigateToHome() {
         findNavController().navigate(R.id.action_loginFragment_to_userHomeFragment)
-    }
+
 
     override fun onDestroyView() {
         super.onDestroyView()

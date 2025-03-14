@@ -5,7 +5,7 @@ data class CreateAccountDto(
     val email: String,
     val password: String,
     val role: String,
-    val uid: String ="",
+    val firebaseUid: String ="",
     val phone: String ="",
     val photoUrl: String ="",
     val cpfOrCnpj: String ="",

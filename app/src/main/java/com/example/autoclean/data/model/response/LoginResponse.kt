@@ -15,3 +15,7 @@ data class User(
     val cpfOrCnpj: String?,
     val role: String
 )
+
+data class UserResponse(
+    val exists: Boolean
+)
