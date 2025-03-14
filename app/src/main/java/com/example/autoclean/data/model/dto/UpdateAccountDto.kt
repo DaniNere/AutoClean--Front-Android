@@ -10,3 +10,9 @@ data class UpdateAccountDto(
     val cpfOrCnpj: String? = null,
     val birthDate: String? = null
 )
+
+data class UpdateDocumentsDto(
+    val selfieUrl: String? = null,
+    val cnhPhoto: String? = null,
+    val crlvPhoto: String? = null
+)

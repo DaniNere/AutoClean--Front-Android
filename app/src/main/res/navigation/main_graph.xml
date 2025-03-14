@@ -66,8 +66,8 @@
         android:label="fragment_recover_account"
         tools:layout="@layout/fragment_recover_account" >
         <action
-            android:id="@+id/action_recoverAccountFragment_to_profilePhotoUploadFragment"
-            app:destination="@id/profilePhotoUploadFragment" />
+            android:id="@+id/action_recoverAccountFragment_to_selfieWithCNHFragment2"
+            app:destination="@id/selfieWithCNHFragment" />
     </fragment>
     <fragment
         android:id="@+id/phoneVerificationStartFragment"

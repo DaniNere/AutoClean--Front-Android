@@ -3,6 +3,7 @@ package com.example.autoclean.data.model.api
 import com.example.autoclean.data.model.dto.CreateAccountDto
 import com.example.autoclean.data.model.dto.LoginDto
 import com.example.autoclean.data.model.dto.UpdateAccountDto
+import com.example.autoclean.data.model.dto.UpdateDocumentsDto
 import com.example.autoclean.data.model.response.LoginResponse
 import com.example.autoclean.data.model.response.UserResponse
 import retrofit2.Call
@@ -29,6 +30,12 @@ interface ApiService {
     fun updateAccount(
         @Path("id") userId: String,
         @Body updateAccountDto: UpdateAccountDto
+    ): Call<Void>
+
+    @PATCH("/users/{id}/selfie-with-cnh")
+    fun updateDocuments(
+        @Path("id") userId: String,
+        @Body updateDocumentsDto: UpdateDocumentsDto
     ): Call<Void>
 
 }

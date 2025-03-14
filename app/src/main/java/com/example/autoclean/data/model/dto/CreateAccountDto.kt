@@ -11,3 +11,4 @@ data class CreateAccountDto(
     val cpfOrCnpj: String ="",
     val birthDate: String =""
 )
+
