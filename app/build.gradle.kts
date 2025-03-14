@@ -77,6 +77,8 @@ dependencies {
     //PhoneNumber
     implementation ("com.googlecode.libphonenumber:libphonenumber:8.13.2")
 
+    //JTW
+    implementation ("com.auth0.android:jwtdecode:2.0.0")
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)

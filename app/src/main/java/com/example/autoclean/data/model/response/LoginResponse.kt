@@ -12,5 +12,6 @@ data class User(
     val email: String,
     val profilePicture: String?,
     val phone: String?,
-    val cpfOrCnpj: String?
+    val cpfOrCnpj: String?,
+    val role: String
 )
