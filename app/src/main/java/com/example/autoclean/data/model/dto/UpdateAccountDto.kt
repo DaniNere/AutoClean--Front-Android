@@ -13,6 +13,7 @@ data class UpdateAccountDto(
 
 data class UpdateDocumentsDto(
     val selfieUrl: String? = null,
-    val cnhPhoto: String? = null,
-    val crlvPhoto: String? = null
+    val frontCnhUrl: String? = null,
+    val backCnhUrl: String? = null,
+    val crlvUrl: String? = null
 )
