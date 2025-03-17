@@ -44,6 +44,12 @@ interface ApiService {
         @Body updateDocumentsDto: UpdateDocumentsDto
     ): Call<Void>
 
+    @PATCH("/users/{id}/crlv-photo")
+    fun updateCrlvPhoto(
+        @Path("id") userId: String,
+        @Body updateDocumentsDto: UpdateDocumentsDto
+    ): Call<Void>
+
 
 }
 
