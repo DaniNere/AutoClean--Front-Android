@@ -111,6 +111,7 @@
                 android:orientation="vertical">
 
                 <ImageView
+                    android:id="@+id/imagePreview"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
@@ -120,6 +121,7 @@
             </LinearLayout>
 
             <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_enviar"
                 style="@style/PrimaryButton"
                 android:layout_width="310dp"
                 android:layout_height="48dp"

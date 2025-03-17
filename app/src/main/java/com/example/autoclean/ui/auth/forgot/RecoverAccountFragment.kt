@@ -31,7 +31,7 @@ class RecoverAccountFragment : Fragment() {
 
     private fun initListeners (){
         binding.btnContinue.setOnClickListener{
-            findNavController().navigate(R.id.action_recoverAccountFragment_to_CNHPhotoFragment)
+            findNavController().navigate(R.id.action_recoverAccountFragment_to_CRLVUploadFragment)
         }
     }
 
