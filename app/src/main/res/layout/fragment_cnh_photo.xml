@@ -31,12 +31,10 @@
                 android:textSize="32sp" />
         </LinearLayout>
 
-
         <androidx.core.widget.NestedScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:fillViewport="true">
-
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -45,7 +43,6 @@
                 android:background="@drawable/rounded_top_border"
                 android:paddingBottom="16dp"
                 android:layout_marginTop="100dp">
-
 
                 <LinearLayout
                     android:layout_width="wrap_content"
@@ -103,7 +100,6 @@
                         android:layout_marginTop="10dp"
                         android:text="@string/instrucao_cnh_4"
                         android:textColor="@color/secondary_variant" />
-
                 </LinearLayout>
 
                 <LinearLayout
@@ -120,10 +116,10 @@
                         android:text="@string/cnh_frente"
                         android:textColor="@color/black"
                         android:textSize="16dp" />
-
                 </LinearLayout>
 
                 <LinearLayout
+                    android:id="@+id/frontImageLayout"
                     android:layout_width="264dp"
                     android:layout_height="144dp"
                     android:layout_gravity="center"
@@ -132,6 +128,7 @@
                     android:orientation="vertical">
 
                     <ImageView
+                        android:id="@+id/imagePreview1"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_horizontal"
@@ -153,11 +150,10 @@
                         android:text="@string/cnh_verso"
                         android:textColor="@color/black"
                         android:textSize="16dp" />
-
                 </LinearLayout>
 
                 <LinearLayout
-                    android:id="@+id/uploadLinearLayout"
+                    android:id="@+id/backImageLayout"
                     android:layout_width="264dp"
                     android:layout_height="144dp"
                     android:layout_gravity="center"
@@ -166,27 +162,23 @@
                     android:orientation="vertical">
 
                     <ImageView
+                        android:id="@+id/imagePreview2"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_horizontal"
                         android:padding="38dp"
                         android:src="@drawable/camera_add" />
-
                 </LinearLayout>
 
                 <com.google.android.material.button.MaterialButton
-
+                    android:id="@+id/btn_enviar"
                     style="@style/PrimaryButton"
                     android:layout_width="310dp"
                     android:layout_height="48dp"
                     android:layout_gravity="center_horizontal"
                     android:layout_marginTop="74dp"
                     android:text="@string/upload_button_text" />
-
             </LinearLayout>
-
         </androidx.core.widget.NestedScrollView>
-
     </FrameLayout>
-
 </androidx.constraintlayout.widget.ConstraintLayout>
