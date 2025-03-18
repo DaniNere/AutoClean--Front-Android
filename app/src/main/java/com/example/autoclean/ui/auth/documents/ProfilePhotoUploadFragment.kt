@@ -197,7 +197,7 @@ class ProfilePhotoUploadFragment : Fragment() {
         ApiClient.apiService.updateAccount(userId, updateAccountDto).enqueue(object : Callback<Void> {
             override fun onResponse(call: Call<Void>, response: Response<Void>) {
                 if (response.isSuccessful) {
-                    showToast("URL salva no banco de dados com sucesso.")
+                    showImageUploadConfirmationDialog()
                 } else {
                     showToast("Falha ao salvar URL no banco de dados.")
                 }
@@ -222,4 +222,10 @@ class ProfilePhotoUploadFragment : Fragment() {
         Log.d(TAG, "Mostrando Toast: $message")
         Toast.makeText(requireContext(), message, Toast.LENGTH_SHORT).show()
     }
+
+    private fun showImageUploadConfirmationDialog() {
+        val dialog = AlertModal.newInstance()
+        dialog.show(parentFragmentManager, "ImageUploadConfirmationDialog")
+    }
+
 }
