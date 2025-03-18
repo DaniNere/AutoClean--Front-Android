@@ -15,12 +15,9 @@ import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.content.ContextCompat
 import androidx.core.content.FileProvider
-import com.example.autoclean.R
 import com.example.autoclean.data.api.ApiClient
 import com.example.autoclean.data.model.dto.UpdateDocumentsDto
 import com.example.autoclean.databinding.FragmentCrlvUploadBinding
-import com.example.autoclean.databinding.FragmentSelfieWithCnhBinding
-import com.example.autoclean.ui.auth.documents.SelfieWithCNHFragment.Companion
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.ktx.storage
 import retrofit2.Call
@@ -201,7 +198,7 @@ class CRLVUploadFragment : Fragment() {
             Callback<Void> {
             override fun onResponse(call: Call<Void>, response: Response<Void>) {
                 if (response.isSuccessful) {
-                    showToast("URL salva no banco de dados com sucesso.")
+                    showImageUploadConfirmationDialog()
                 } else {
                     showToast("Falha ao salvar URL no banco de dados.")
                 }
@@ -225,6 +222,11 @@ class CRLVUploadFragment : Fragment() {
     private fun showToast(message: String) {
         Log.d(TAG, "Mostrando Toast: $message")
         Toast.makeText(requireContext(), message, Toast.LENGTH_SHORT).show()
+    }
+
+    private fun showImageUploadConfirmationDialog() {
+        val dialog = AlertModal.newInstance()
+        dialog.show(parentFragmentManager, "ImageUploadConfirmationDialog")
     }
 
 }

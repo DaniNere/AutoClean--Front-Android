@@ -253,7 +253,7 @@ class CNHPhotoFragment : Fragment() {
         ApiClient.apiService.updateCnhPhoto(userId, updateDocumentsDto).enqueue(object : Callback<Void> {
             override fun onResponse(call: Call<Void>, response: Response<Void>) {
                 if (response.isSuccessful) {
-                    showToast("URLs salvas no banco de dados com sucesso.")
+                    showImageUploadConfirmationDialog()
                 } else {
                     showToast("Falha ao salvar URLs no banco de dados.")
                 }
@@ -288,4 +288,10 @@ class CNHPhotoFragment : Fragment() {
         Log.d(TAG, "Mostrando Toast: $message")
         Toast.makeText(requireContext(), message, Toast.LENGTH_SHORT).show()
     }
+
+    private fun showImageUploadConfirmationDialog() {
+        val dialog = AlertModal.newInstance()
+        dialog.show(parentFragmentManager, "ImageUploadConfirmationDialog")
+    }
+
 }
