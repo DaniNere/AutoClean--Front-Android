@@ -183,6 +183,10 @@ class LoginFragment : Fragment() {
             Log.d("GoogleLogin", "Botão de login do Google clicado.")
             signIn()
         }
+
+        /*binding.btnApple.setOnClickListener{
+            findNavController().navigate(R.id.action_loginFragment_to_validationKitFragment)
+        }*/
     }
 
     private fun signIn() {

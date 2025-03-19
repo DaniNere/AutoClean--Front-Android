@@ -15,5 +15,6 @@ data class UpdateDocumentsDto(
     val selfieUrl: String? = null,
     val frontCnhUrl: String? = null,
     val backCnhUrl: String? = null,
-    val crlvUrl: String? = null
+    val crlvUrl: String? = null,
+    val validationKitVideo: String? = null
 )
