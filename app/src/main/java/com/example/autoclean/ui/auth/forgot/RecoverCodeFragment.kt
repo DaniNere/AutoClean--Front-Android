@@ -7,22 +7,25 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import com.example.autoclean.R
-import com.example.autoclean.databinding.FragmentRecoverAccountBinding
+import com.example.autoclean.databinding.FragmentPasswordChangeBinding
+import com.example.autoclean.databinding.FragmentRecoverCodeBinding
 
 
-class RecoverAccountFragment : Fragment() {
-    private var _binding: FragmentRecoverAccountBinding? = null
+
+class RecoverCodeFragment : Fragment() {
+
+    private var _binding: FragmentRecoverCodeBinding? = null
     private val binding get() = _binding!!
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding=FragmentRecoverAccountBinding.inflate(inflater, container, false)
+        _binding= FragmentRecoverCodeBinding.inflate(inflater, container, false)
         return binding.root
 
-    }
 
+    }
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
@@ -31,9 +34,11 @@ class RecoverAccountFragment : Fragment() {
 
     private fun initListeners (){
         binding.btnContinue.setOnClickListener{
-            findNavController().navigate(R.id.action_recoverAccountFragment_to_recoverCodeFragment)
+            findNavController().navigate(R.id.action_recoverCodeFragment_to_passwordChangeFragment)
         }
     }
+
+
 
     override fun onDestroyView() {
         super.onDestroyView()

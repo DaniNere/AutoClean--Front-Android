@@ -66,8 +66,8 @@
         android:label="fragment_recover_account"
         tools:layout="@layout/fragment_recover_account" >
         <action
-            android:id="@+id/action_recoverAccountFragment_to_CRLVUploadFragment"
-            app:destination="@id/CRLVUploadFragment" />
+            android:id="@+id/action_recoverAccountFragment_to_recoverCodeFragment"
+            app:destination="@id/recoverCodeFragment" />
     </fragment>
     <fragment
         android:id="@+id/phoneVerificationStartFragment"
@@ -303,4 +303,18 @@
             android:name="photoUrl"
             app:argType="string" />
     </fragment>
+    <fragment
+        android:id="@+id/recoverCodeFragment"
+        android:name="com.example.autoclean.ui.auth.forgot.RecoverCodeFragment"
+        android:label="fragment_recover_code"
+        tools:layout="@layout/fragment_recover_code" >
+        <action
+            android:id="@+id/action_recoverCodeFragment_to_passwordChangeFragment"
+            app:destination="@id/passwordChangeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/passwordChangeFragment"
+        android:name="com.example.autoclean.ui.auth.forgot.PasswordChangeFragment"
+        android:label="fragment_password_change"
+        tools:layout="@layout/fragment_password_change" />
 </navigation>
