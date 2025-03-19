@@ -82,6 +82,7 @@
                     android:src="@drawable/line_10" />
 
                 <com.google.android.material.button.MaterialButton
+                    android:id="@+id/photowithcnh"
                     style="@style/TransparentButton"
                     android:layout_marginTop="26dp"
                     android:text="@string/btn_photo_with_cnh" />
@@ -94,6 +95,7 @@
                     android:src="@drawable/line_10" />
 
                 <com.google.android.material.button.MaterialButton
+                    android:id="@+id/photo_cnh"
                     style="@style/TransparentButton"
                     android:layout_marginTop="26dp"
                     android:text="@string/btn_cnh" />
@@ -106,6 +108,7 @@
                     android:src="@drawable/line_10" />
 
                 <com.google.android.material.button.MaterialButton
+                    android:id="@+id/photo_crlv"
                     style="@style/TransparentButton"
                     android:layout_marginTop="26dp"
                     android:text="@string/btn_crlv" />

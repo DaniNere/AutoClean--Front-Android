@@ -33,6 +33,18 @@ class ProfessionalVerificationFragment : Fragment() {
         binding.photoPerfil.setOnClickListener{
             findNavController().navigate(R.id.action_professionalVerificationFragment_to_profilePhotoUploadFragment)
         }
+
+        binding.photowithcnh.setOnClickListener{
+            findNavController().navigate(R.id.action_professionalVerificationFragment_to_selfieWithCNHFragment)
+        }
+
+        binding.photoCnh.setOnClickListener{
+            findNavController().navigate(R.id.action_professionalVerificationFragment_to_CNHPhotoFragment)
+        }
+
+        binding.photoCrlv.setOnClickListener{
+            findNavController().navigate(R.id.action_professionalVerificationFragment_to_CRLVUploadFragment)
+        }
     }
 
     private fun initListeners() {
